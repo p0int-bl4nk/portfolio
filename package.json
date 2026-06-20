@@ -1,8 +1,7 @@
 {
   "name": "portfolio",
-  "packageManager": "pnpm@10.33.0",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +9,6 @@
     "format": "oxfmt .",
     "preview": "vite preview",
     "prepare": "husky"
-  },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx}": "oxfmt"
   },
   "dependencies": {
     "react": "~19.2.6",
@@ -26,8 +22,12 @@
     "husky": "~9.1.7",
     "lint-staged": "~17.0.7",
     "oxfmt": "~0.55.0",
-    "vite-plugin-oxlint": "~2.1.2",
     "typescript": "~6.0.2",
-    "vite": "~8.0.12"
-  }
+    "vite": "~8.0.12",
+    "vite-plugin-oxlint": "~2.1.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "oxfmt"
+  },
+  "packageManager": "pnpm@10.33.0"
 }
