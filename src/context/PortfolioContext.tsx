@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { changeLanguage } from '../i18n/index';
+import i18n from '../i18n/index';
 
 type Lang = 'en' | 'hi' | 'es' | 'fr';
 
@@ -53,8 +53,7 @@ function savePrefs(p: Prefs) {
 const Ctx = createContext<PortfolioContextValue | null>(null);
 
 function tryChangeLanguage(lang: Lang): void {
-  // i18n will be properly implemented in Task 4
-  changeLanguage(lang);
+  void i18n.changeLanguage(lang);
 }
 
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
