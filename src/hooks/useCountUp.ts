@@ -19,7 +19,7 @@ export function useCountUp(target: number, options: Options = {}) {
   const final = `${prefix}${target.toFixed(decimals)}${suffix}`;
   const [display, setDisplay] = useState(`${prefix}0${suffix}`);
   const triggered = useRef(false);
-  const iv = useRef<number | undefined>(undefined);
+  const iv = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   const start = useCallback(
     (motion: boolean) => {
