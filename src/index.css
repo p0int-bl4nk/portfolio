@@ -1,1 +1,75 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-accent-green: #0f9d6e;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  --font-sans: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-readable: 'Atkinson Hyperlegible', sans-serif;
+
+  --breakpoint-xs: 540px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #fafaf8;
+  --muted-foreground: #8a8a8a;
+  --border: #e7e7e4;
+  --ring: #0a0a0a;
+  --radius: 0;
+}
+
+.theme-dark {
+  --background: #0b0b0c;
+  --foreground: #f1f1ee;
+  --muted: #141413;
+  --muted-foreground: #787873;
+  --border: #222220;
+  --ring: #f1f1ee;
+}
+
+.hc                { --muted-foreground: #3a3a3a; --border: #b4b4b0; }
+.hc.theme-dark     { --muted-foreground: #d2d2cd; --border: #5e5e5a; }
+
+.motion-off * { animation: none !important; transition: none !important; }
+.ul a         { text-decoration: underline; text-underline-offset: 3px; }
+.dys          { --font-sans: 'Atkinson Hyperlegible', sans-serif; letter-spacing: 0 !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--foreground); color: var(--background); }
+
+::-webkit-scrollbar       { width: 10px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes glitch {
+  0%,100% { transform: translate(0); }
+  20%      { transform: translate(-3px, 1px); }
+  40%      { transform: translate(3px, -1px); }
+  60%      { transform: translate(-2px, 2px); }
+  80%      { transform: translate(2px, -2px); }
+}
+.glitch { animation: glitch 0.4s steps(1) 1; }
