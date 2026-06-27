@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { changeLanguage } from '../i18n/index';
 
 type Lang = 'en' | 'hi' | 'es' | 'fr';
 
@@ -52,15 +53,8 @@ function savePrefs(p: Prefs) {
 const Ctx = createContext<PortfolioContextValue | null>(null);
 
 function tryChangeLanguage(lang: Lang): void {
-  try {
-    // Dynamic import to avoid circular dependency and allow Task 4 to implement i18n
-    const i18nModule = (window as any).i18n;
-    if (i18nModule && typeof i18nModule.changeLanguage === 'function') {
-      i18nModule.changeLanguage(lang);
-    }
-  } catch {
-    // i18n not yet implemented (Task 4)
-  }
+  // i18n will be properly implemented in Task 4
+  changeLanguage(lang);
 }
 
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
