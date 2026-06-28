@@ -109,7 +109,7 @@ export function ContactSection() {
 
       {/* Footer */}
       <div className='flex justify-between items-center text-[11px] text-muted-foreground'>
-        <span>© 2025 SACHIN VERMA</span>
+        <span>© 2025 SACHIN VERMA — BUILT IN JETBRAINS MONO</span>
         <span>↑↑↓↓←→←→BA</span>
       </div>
     </section>
