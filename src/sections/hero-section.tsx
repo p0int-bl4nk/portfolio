@@ -22,7 +22,7 @@ export function HeroSection() {
   return (
     <section
       id='home'
-      className='min-h-screen flex flex-col justify-center pt-13.5 px-6 max-xs:px-4'
+      className='min-h-screen flex flex-col justify-center pt-24 md:pt-13.5 px-6 max-xs:px-4'
     >
       {/* Meta row */}
       <div className='flex flex-wrap justify-between gap-2 text-xs tracking-2 text-muted-foreground border-b border-border pb-5 mb-10'>

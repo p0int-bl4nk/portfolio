@@ -19,7 +19,7 @@ export function CopyButton({ content, className }: CopyButtonProps) {
       .writeText(content)
       .then(() => {
         setCopied(true);
-        showToast(t('ui.copied'));
+        showToast('// ' + t('ui.copied'));
         setTimeout(() => setCopied(false), 1600);
       })
       .catch(() => {});
