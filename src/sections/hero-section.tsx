@@ -55,11 +55,11 @@ export function HeroSection() {
             className='text-[15px] leading-[1.85] border-t border-border pt-5 mb-0'
             dangerouslySetInnerHTML={{ __html: t('hero.lead') }}
           />
-          <div className='mt-[18px] text-[14px] text-muted-foreground flex items-center gap-1 overflow-hidden'>
-            <span className='shrink-0'>$ {t('hero.building')}</span>
-            <span className='text-foreground truncate'>{typed}</span>
+          <div className='mt-[18px] text-[14px] text-muted-foreground whitespace-nowrap overflow-hidden'>
+            $ {t('hero.building')}{' '}
+            <span className='text-foreground'>{typed}</span>
             <span
-              className='inline-block shrink-0 w-[8px] h-[15px] bg-foreground align-[-2px]'
+              className='inline-block w-[8px] h-[15px] bg-foreground align-[-2px] ml-[1px]'
               style={{
                 animation: motion ? 'none' : 'blink 1s step-end infinite',
               }}
