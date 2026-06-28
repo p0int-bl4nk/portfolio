@@ -24,12 +24,14 @@ function Metric({
   label: string;
   motion: boolean;
 }) {
-  const { display, start } = useCountUp(target, { prefix, decimals, suffix });
+  const { display, ref } = useCountUp(target, {
+    prefix,
+    decimals,
+    suffix,
+    motion,
+  });
   return (
-    <div
-      className='py-[22px] px-[18px] cursor-default'
-      onMouseEnter={() => start(motion)}
-    >
+    <div ref={ref} className='py-[22px] px-[18px] cursor-default'>
       <div className='text-[38px] font-black leading-none'>{display}</div>
       <div className='text-[11px] text-muted-foreground tracking-[1px] mt-1'>
         {label}

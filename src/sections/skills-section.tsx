@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { usePortfolio } from '../context/portfolio-context';
-import { useCountUp } from '../hooks/use-count-up';
+import { useCountUp } from '@/hooks';
 
 const SKILL_GROUPS = [
   {
@@ -67,20 +67,20 @@ const SKILL_GROUPS = [
 export function SkillsSection() {
   const { t } = useTranslation();
   const { motion } = usePortfolio();
-  const count = useCountUp(40, { suffix: '+', duration: 1400 });
+  const count = useCountUp(40, { suffix: '+', duration: 1400, motion });
 
   return (
     <section
       id='skills'
-      className='py-[90px] px-6 max-xs:px-4 border-t border-border'
+      className='py-22.5 px-6 max-xs:px-4 border-t border-border'
     >
       <div className='flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground mb-5'>
         [ 02 / {t('sec.skills')} ]
         <span className='flex-1 h-px bg-border' />
       </div>
       <p
-        className='text-[12px] text-muted-foreground mb-[46px] cursor-default'
-        onMouseEnter={() => count.start(motion)}
+        ref={count.ref}
+        className='text-[12px] text-muted-foreground mb-11.5 cursor-default'
       >
         <span className='text-foreground'>{count.display}</span>
         {t('skills.intro')}
@@ -94,11 +94,11 @@ export function SkillsSection() {
             <div className='text-[12px] text-muted-foreground'>
               <span>{no}</span> {t(key)}
             </div>
-            <div className='flex flex-wrap gap-2'>
+            <div className='flex flex-wrap gap-2 items-start'>
               {items.map(item => (
                 <span
                   key={item}
-                  className='text-[12.5px] border border-border px-[11px] py-[6px] cursor-default transition-colors duration-150 hover:bg-foreground hover:text-background hover:border-foreground'
+                  className='text-[12.5px] border border-border px-2.75 py-1.5 cursor-default transition-colors duration-150 hover:bg-foreground hover:text-background hover:border-foreground'
                 >
                   {item}
                 </span>
