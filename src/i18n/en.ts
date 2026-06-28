@@ -8,7 +8,7 @@ export const en = {
   'nav.contact': 'Contact',
   // Hero
   'hero.role': 'SOFTWARE DEVELOPMENT ENGINEER II',
-  'hero.disc': 'FULL-STACK · BACKEND',
+  'hero.disc': 'FULL-STACK',
   'hero.loc': 'GURUGRAM, IN',
   'hero.scroll': 'SCROLL TO EXPLORE',
   'hero.building': 'currently building',
@@ -31,7 +31,7 @@ export const en = {
     'I like turning messy, manual workflows into type-safe, automated systems — and shipping them with the test coverage and deployment discipline to keep them reliable at scale.',
   'about.current_l': 'CURRENT',
   'about.focus_l': 'FOCUS',
-  'about.focus_v': 'Full-stack & Backend',
+  'about.focus_v': 'Full-stack',
   'about.based_l': 'BASED IN',
   'about.based_v': 'Gurugram, India',
   'about.status_l': 'STATUS',
