@@ -78,7 +78,7 @@ export function SkillsSection() {
         ref={count.ref}
         className='text-[12px] text-muted-foreground mb-11.5 cursor-default'
       >
-        <span className='text-foreground'>{count.display}</span>
+        <span className='text-foreground font-black'>{count.display}</span>
         {t('skills.intro')}
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -87,8 +87,9 @@ export function SkillsSection() {
             key={key}
             className='grid grid-cols-1 sm:grid-cols-[140px_1fr] border-b border-border py-4 gap-3'
           >
-            <div className='text-[12px] text-muted-foreground'>
-              <span>{no}</span> {t(key)}
+            <div className='text-[12px]'>
+              <span className='text-muted-foreground'>{no}</span>{' '}
+              <span className='font-black'>{t(key)}</span>
             </div>
             <div className='flex flex-wrap gap-2 items-start'>
               {items.map(item => (

@@ -32,7 +32,7 @@ export const hi: Record<string, string | string[]> = {
   'about.based_v': 'गुरुग्राम, भारत',
   'about.status_l': 'स्थिति',
   'about.status_v': 'काम के लिए उपलब्ध',
-  'skills.intro': ' तकनीकें, 8 क्षेत्रों में — हाइलाइट करने के लिए होवर करें।',
+  'skills.intro': ' तकनीकें, 8 क्षेत्रों में।',
   'sk.frontend': 'फ्रंटएंड',
   'sk.backend': 'बैकएंड',
   'sk.databases': 'डेटाबेस',

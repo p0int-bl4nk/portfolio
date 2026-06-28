@@ -12,10 +12,7 @@ export function Section({ id, children, className }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn(
-        'py-[90px] px-6 max-xs:px-4 border-t border-border',
-        className,
-      )}
+      className={cn('py-20 px-6 max-xs:px-4 border-t border-border', className)}
     >
       {children}
     </section>

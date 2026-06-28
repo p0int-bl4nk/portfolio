@@ -32,8 +32,7 @@ export const fr: Record<string, string | string[]> = {
   'about.based_v': 'Gurugram, Inde',
   'about.status_l': 'STATUT',
   'about.status_v': 'Ouvert aux opportunités',
-  'skills.intro':
-    ' technologies dans 8 domaines — survolez pour mettre en évidence.',
+  'skills.intro': ' technologies dans 8 domaines.',
   'sk.frontend': 'Frontend',
   'sk.backend': 'Backend',
   'sk.databases': 'Bases de données',

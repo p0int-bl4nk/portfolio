@@ -112,9 +112,9 @@ export function ExperienceSection() {
             {/* Custom trigger row */}
             <div className='grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 py-5 items-start'>
               <div className='text-[12px] text-muted-foreground'>{date}</div>
-              <div>
+              <div className='space-y-1'>
                 <div className='text-[22px] font-bold'>{title}</div>
-                <div className='text-[14px] text-muted-foreground mt-1'>
+                <div className='text-[14px] text-muted-foreground'>
                   {employer}
                 </div>
               </div>

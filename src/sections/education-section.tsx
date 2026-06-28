@@ -21,7 +21,7 @@ export function EducationSection() {
             degree: t('edu.d2'),
             inst: 'Government Model Science College, Rewa, M.P.',
             score: '69%',
-            unit: t('edu.score'),
+            unit: '',
           },
         ].map(({ dates, degree, inst, score, unit }) => (
           <div

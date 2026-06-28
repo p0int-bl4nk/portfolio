@@ -45,10 +45,10 @@ export function HeroSection() {
       </h1>
 
       {/* Lead + stats row */}
-      <div className='flex flex-col md:flex-row gap-10 mb-16'>
+      <div className='flex flex-col md:flex-row gap-10 mb-16 border-border border-t'>
         <div className='max-w-[560px]'>
           <p
-            className='text-[15px] leading-[1.85] border-t border-border pt-5 mb-0'
+            className='text-[15px] leading-[1.85] pt-5 mb-0'
             dangerouslySetInnerHTML={{ __html: t('hero.lead') }}
           />
           <div className='mt-[18px] text-[14px] text-muted-foreground'>
@@ -65,13 +65,11 @@ export function HeroSection() {
 
         {/* Stats */}
         <div className='flex gap-9 items-start pt-5'>
-          {(
-            [
-              { hook: years, label: 'YEARS' },
-              { hook: awards, label: 'AWARDS' },
-              { hook: coverage, label: 'COVERAGE' },
-            ] as const
-          ).map(({ hook, label }) => (
+          {[
+            { hook: years, label: 'YEARS' },
+            { hook: awards, label: 'AWARDS' },
+            { hook: coverage, label: 'COVERAGE' },
+          ].map(({ hook, label }) => (
             <div key={label} ref={hook.ref} className='cursor-default'>
               <div className='text-[34px] font-bold leading-none'>
                 {hook.display}
@@ -85,7 +83,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll hint */}
-      <div className='flex items-center gap-3 text-[11px] text-muted-foreground tracking-[2px]'>
+      <div className='flex items-center gap-3 text-[11px] text-muted-foreground tracking-[2px] pb-8'>
         <span className='inline-block w-px h-[26px] bg-muted-foreground' />
         {t('hero.scroll')}
       </div>

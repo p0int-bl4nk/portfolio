@@ -37,7 +37,7 @@ export const en = {
   'about.status_l': 'STATUS',
   'about.status_v': 'Open to work',
   // Skills
-  'skills.intro': ' technologies across 8 domains — hover to highlight.',
+  'skills.intro': ' technologies across 8 domains.',
   'sk.frontend': 'Frontend',
   'sk.backend': 'Backend',
   'sk.databases': 'Databases',

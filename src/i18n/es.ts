@@ -32,7 +32,7 @@ export const es: Record<string, string | string[]> = {
   'about.based_v': 'Gurugram, India',
   'about.status_l': 'ESTADO',
   'about.status_v': 'Disponible para trabajar',
-  'skills.intro': ' tecnologías en 8 dominios — pasa el cursor para resaltar.',
+  'skills.intro': ' tecnologías en 8 dominios.',
   'sk.frontend': 'Frontend',
   'sk.backend': 'Backend',
   'sk.databases': 'Bases de datos',
