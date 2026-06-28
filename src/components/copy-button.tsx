@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { cn } from '../lib/utils';
+
+import { usePortfolio } from '@/context/portfolio-context';
+import { cn } from '@/lib/utils';
 
 interface CopyButtonProps {
   content: string;

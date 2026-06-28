@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { useCountUp } from '../hooks/use-count-up';
-import { useTypingEffect } from '../hooks/use-typing-effect';
+
+import { usePortfolio } from '@/context/portfolio-context';
+import { useTypingEffect, useCountUp } from '@/hooks';
 
 function SectionLabel({ no, label }: { no: string; label: string }) {
   return (

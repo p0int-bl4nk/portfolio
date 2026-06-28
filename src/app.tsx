@@ -1,17 +1,18 @@
 import { useCallback, useEffect } from 'react';
-import { usePortfolio } from './context/portfolio-context';
-import { useKonami } from './hooks/use-konami';
-import { Nav } from './components/nav';
-import { HeroSection } from './sections/hero-section';
-import { AboutSection } from './sections/about-section';
-import { SkillsSection } from './sections/skills-section';
-import { ExperienceSection } from './sections/experience-section';
-import { AwardsSection } from './sections/awards-section';
-import { EducationSection } from './sections/education-section';
-import { ContactSection } from './sections/contact-section';
-import { CommandPalette } from './components/command-palette';
-import { A11yPanel } from './components/a11y-panel';
-import { Toast } from './components/toast';
+
+import { A11yPanel } from '@/components/a11y-panel';
+import { CommandPalette } from '@/components/command-palette';
+import { Nav } from '@/components/nav';
+import { Toast } from '@/components/toast';
+import { usePortfolio } from '@/context/portfolio-context';
+import { useKonami } from '@/hooks/use-konami';
+import { AboutSection } from '@/sections/about-section';
+import { AwardsSection } from '@/sections/awards-section';
+import { ContactSection } from '@/sections/contact-section';
+import { EducationSection } from '@/sections/education-section';
+import { ExperienceSection } from '@/sections/experience-section';
+import { HeroSection } from '@/sections/hero-section';
+import { SkillsSection } from '@/sections/skills-section';
 
 export function App() {
   const { themeDark, hc, ul, motion, dys, textStep, toggleTheme, showToast } =

@@ -12,5 +12,17 @@
   "bracketSameLine": false,
   "arrowParens": "avoid",
   "endOfLine": "lf",
-  "ignorePatterns": ["dist"]
+  "ignorePatterns": ["dist"],
+  "sortImports": {
+    "internalPattern": ["@/"],
+    "newlinesBetween": true,
+    "groups": [
+      "builtin",
+      "external",
+      "internal",
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ]
+  }
 }

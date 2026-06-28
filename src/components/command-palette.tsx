@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { Dialog, DialogContent, DialogTitle } from './ui/dialog';
+
 import {
   Command,
   CommandInput,
@@ -9,7 +8,9 @@ import {
   CommandGroup,
   CommandItem,
   CommandEmpty,
-} from './ui/command';
+} from '@/components/ui/command';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { usePortfolio } from '@/context/portfolio-context';
 
 function scrollTo(id: string, motion: boolean) {
   if (id === 'home') {

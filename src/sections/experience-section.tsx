@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { useCountUp } from '../hooks/use-count-up';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-} from '../components/ui/accordion';
-import { cn } from '../lib/utils';
+} from '@/components/ui/accordion';
+import { usePortfolio } from '@/context/portfolio-context';
+import { useCountUp } from '@/hooks/use-count-up';
+import { cn } from '@/lib/utils';
 
 function Metric({
   prefix = '',

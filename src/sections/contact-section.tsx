@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { CopyButton } from '../components/copy-button';
+
+import { CopyButton } from '@/components/copy-button';
 
 const EMAIL = 'skv860254262+pf@gmail.com';
 const PHONE = '+91 98278 86094';

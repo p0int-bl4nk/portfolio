@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
+
+import { usePortfolio } from '@/context/portfolio-context';
 import { useCountUp } from '@/hooks';
 
 const SKILL_GROUPS = [

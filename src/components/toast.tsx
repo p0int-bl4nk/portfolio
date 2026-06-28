@@ -1,5 +1,5 @@
-import { usePortfolio } from '../context/portfolio-context';
-import { cn } from '../lib/utils';
+import { usePortfolio } from '@/context/portfolio-context';
+import { cn } from '@/lib/utils';
 
 export function Toast() {
   const { toast } = usePortfolio();

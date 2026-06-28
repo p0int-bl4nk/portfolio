@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import i18n from '../i18n/index';
+
+import i18n from '@/i18n';
 
 type Lang = 'en' | 'hi' | 'es' | 'fr';
 

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { useActiveSection } from '../hooks/index';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
-import { cn } from '../lib/utils';
+} from '@/components/ui/dropdown-menu';
+import { usePortfolio } from '@/context/portfolio-context';
+import { useActiveSection } from '@/hooks';
+import { cn } from '@/lib/utils';
 
 const SECTION_IDS = [
   'home',

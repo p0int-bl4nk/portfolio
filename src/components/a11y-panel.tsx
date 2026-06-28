@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/portfolio-context';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { cn } from '../lib/utils';
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { usePortfolio } from '@/context/portfolio-context';
+import { cn } from '@/lib/utils';
 
 const ZOOM_MAP: Record<number, string> = {
   '-1': '90%',
