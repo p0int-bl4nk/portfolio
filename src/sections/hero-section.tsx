@@ -1,17 +1,9 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { SectionLabel } from '@/components/section';
 import { usePortfolio } from '@/context/portfolio-context';
 import { useTypingEffect, useCountUp } from '@/hooks';
-
-function SectionLabel({ no, label }: { no: string; label: string }) {
-  return (
-    <div className='flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground mb-8'>
-      [ {no} / {label} ]
-      <span className='flex-1 h-px bg-border' />
-    </div>
-  );
-}
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -40,7 +32,7 @@ export function HeroSection() {
         <span>EST. 2021</span>
       </div>
 
-      <SectionLabel no='00' label={t('sec.index')} />
+      <SectionLabel no='00' label={t('sec.index')} className='mb-8' />
 
       {/* Hero name */}
       <h1

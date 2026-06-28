@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { CopyButton } from '@/components/copy-button';
+import { Section, SectionLabel } from '@/components/section';
 
 const EMAIL = 'skv860254262+pf@gmail.com';
 const PHONE = '+91 98278 86094';
@@ -12,17 +13,8 @@ export function ContactSection() {
   const headLines = t('contact.head').split('\n');
 
   return (
-    <section
-      id='contact'
-      className='border-t border-border py-[90px] px-6 max-xs:px-4'
-    >
-      {/* Section header */}
-      <div className='flex items-center gap-3 mb-[60px]'>
-        <span className='text-[12px] tracking-[2px] text-muted-foreground'>
-          [ 06 / {t('sec.contact')} ]
-        </span>
-        <span className='flex-1 h-px bg-border' />
-      </div>
+    <Section id='contact'>
+      <SectionLabel no='06' label={t('sec.contact')} className='mb-[60px]' />
 
       {/* Big heading */}
       <h2
@@ -100,6 +92,6 @@ export function ContactSection() {
         <span>© 2025 SACHIN VERMA — BUILT IN JETBRAINS MONO</span>
         <span>↑↑↓↓←→←→BA</span>
       </div>
-    </section>
+    </Section>
   );
 }

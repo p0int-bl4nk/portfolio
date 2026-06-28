@@ -1,16 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
+import { Section, SectionLabel } from '@/components/section';
+
 export function AboutSection() {
   const { t } = useTranslation();
   return (
-    <section
-      id='about'
-      className='py-[90px] px-6 max-xs:px-4 border-t border-border'
-    >
-      <div className='flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground mb-14'>
-        [ 01 / {t('sec.about')} ]
-        <span className='flex-1 h-px bg-border' />
-      </div>
+    <Section id='about'>
+      <SectionLabel no='01' label={t('sec.about')} className='mb-14' />
       <div className='grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-[60px]'>
         <div>
           <p className='text-[26px] font-bold leading-[1.35] tracking-[-0.02em]'>
@@ -64,6 +60,6 @@ export function AboutSection() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

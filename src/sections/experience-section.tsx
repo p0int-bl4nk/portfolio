@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Section, SectionLabel } from '@/components/section';
 import {
   Accordion,
   AccordionContent,
@@ -58,14 +59,8 @@ export function ExperienceSection() {
   const [open, setOpen] = useState<string[]>(['role-1']);
 
   return (
-    <section
-      id='experience'
-      className='py-[90px] px-6 max-xs:px-4 border-t border-border'
-    >
-      <div className='flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground mb-[46px]'>
-        [ 03 / {t('sec.experience')} ]
-        <span className='flex-1 h-px bg-border' />
-      </div>
+    <Section id='experience'>
+      <SectionLabel no='03' label={t('sec.experience')} className='mb-[46px]' />
 
       {/* Metrics band */}
       <div className='grid grid-cols-2 sm:grid-cols-4 border-y border-foreground mb-[60px]'>
@@ -160,6 +155,6 @@ export function ExperienceSection() {
           </AccordionItem>
         ))}
       </Accordion>
-    </section>
+    </Section>
   );
 }

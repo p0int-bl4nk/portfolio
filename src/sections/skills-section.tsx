@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { Section, SectionLabel } from '@/components/section';
 import { usePortfolio } from '@/context/portfolio-context';
 import { useCountUp } from '@/hooks';
 
@@ -71,14 +72,8 @@ export function SkillsSection() {
   const count = useCountUp(40, { suffix: '+', duration: 1400, motion });
 
   return (
-    <section
-      id='skills'
-      className='py-22.5 px-6 max-xs:px-4 border-t border-border'
-    >
-      <div className='flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground mb-5'>
-        [ 02 / {t('sec.skills')} ]
-        <span className='flex-1 h-px bg-border' />
-      </div>
+    <Section id='skills'>
+      <SectionLabel no='02' label={t('sec.skills')} className='mb-5' />
       <p
         ref={count.ref}
         className='text-[12px] text-muted-foreground mb-11.5 cursor-default'
@@ -108,6 +103,6 @@ export function SkillsSection() {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
