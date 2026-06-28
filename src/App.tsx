@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { usePortfolio } from './context/PortfolioContext';
+import { useKonami } from './hooks/useKonami';
 import { Nav } from './components/Nav';
 import { HeroSection } from './sections/HeroSection';
 import { AboutSection } from './sections/AboutSection';
@@ -13,7 +14,26 @@ import { A11yPanel } from './components/A11yPanel';
 import { Toast } from './components/Toast';
 
 export function App() {
-  const { themeDark, hc, ul, motion, dys, textStep } = usePortfolio();
+  const { themeDark, hc, ul, motion, dys, textStep, toggleTheme, showToast } =
+    usePortfolio();
+
+  const onKonami = useCallback(() => {
+    toggleTheme();
+    showToast('// easter egg: konami code activated 🎮');
+    if (!motion) {
+      const h1 = document.querySelector<HTMLElement>('#hero h1');
+      if (h1) {
+        h1.classList.add('glitch');
+        h1.addEventListener(
+          'animationend',
+          () => h1.classList.remove('glitch'),
+          { once: true },
+        );
+      }
+    }
+  }, [toggleTheme, showToast, motion]);
+
+  useKonami(onKonami);
 
   useEffect(() => {
     const el = document.documentElement;
