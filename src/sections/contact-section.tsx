@@ -6,7 +6,7 @@ import { Section, SectionLabel } from '@/components/section';
 const EMAIL = 'skv860254262+pf@gmail.com';
 const PHONE = '+91 98278 86094';
 const LINKEDIN_HANDLE = 'in/sachin-verma-l';
-const LINKEDIN_URL = `https://linkedin.com/in/${LINKEDIN_HANDLE}`;
+const LINKEDIN_URL = `https://linkedin.com/${LINKEDIN_HANDLE}`;
 
 export function ContactSection() {
   const { t } = useTranslation();
