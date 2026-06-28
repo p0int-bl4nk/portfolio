@@ -43,7 +43,7 @@ export function AwardsSection() {
           <div className='text-[11px] text-muted-foreground tracking-[1px] mb-6'>
             {t('awards.certs')}
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-8'>
             {[
               { name: 'Google Cybersecurity', org: 'Coursera', year: '2023' },
               { name: 'Data Modelling', org: 'MongoDB Univ.', year: '2022' },

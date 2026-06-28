@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePortfolio } from '../context/portfolio-context';
 import { useCountUp } from '../hooks/use-count-up';
@@ -16,7 +17,10 @@ export function HeroSection() {
   const { t } = useTranslation();
   const { motion } = usePortfolio();
 
-  const words = t('typed', { returnObjects: true }) as string[];
+  const words = useMemo(
+    () => t('typed', { returnObjects: true }) as string[],
+    [t],
+  );
   const typed = useTypingEffect(words, motion);
 
   const years = useCountUp(5, { suffix: '+', duration: 1400, motion });
@@ -55,9 +59,9 @@ export function HeroSection() {
             className='text-[15px] leading-[1.85] border-t border-border pt-5 mb-0'
             dangerouslySetInnerHTML={{ __html: t('hero.lead') }}
           />
-          <div className='mt-[18px] text-[14px] text-muted-foreground whitespace-nowrap overflow-hidden'>
+          <div className='mt-[18px] text-[14px] text-muted-foreground'>
             $ {t('hero.building')}{' '}
-            <span className='text-foreground'>{typed}</span>
+            <span className='text-foreground whitespace-nowrap'>{typed}</span>
             <span
               className='inline-block w-[8px] h-[15px] bg-foreground align-[-2px] ml-[1px]'
               style={{

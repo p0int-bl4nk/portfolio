@@ -88,7 +88,7 @@ export const en = {
   'edu.score': 'SCORE',
   // Contact
   'contact.head': "LET'S\nBUILD\nSOMETHING.",
-  'contact.email_l': 'EMAIL — CLICK TO COPY',
+  'contact.email_l': 'EMAIL',
   'contact.phone_l': 'PHONE',
   'contact.loc_l': 'LOCATION',
   'contact.egg': '// PSST — TRY THE KONAMI CODE, OR PRESS ⌘K',

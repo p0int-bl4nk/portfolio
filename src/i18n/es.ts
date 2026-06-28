@@ -77,7 +77,7 @@ export const es: Record<string, string | string[]> = {
   'edu.d2': 'Lic. — Informática, Física y Matemáticas',
   'edu.score': 'PUNTUACIÓN',
   'contact.head': 'CONSTRUYAMOS\nALGO\nJUNTOS.',
-  'contact.email_l': 'EMAIL — CLIC PARA COPIAR',
+  'contact.email_l': 'EMAIL',
   'contact.phone_l': 'TELÉFONO',
   'contact.loc_l': 'UBICACIÓN',
   'contact.egg': '// PSST — PRUEBA EL CÓDIGO KONAMI, O PULSA ⌘K',

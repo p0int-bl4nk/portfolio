@@ -78,7 +78,7 @@ export const fr: Record<string, string | string[]> = {
   'edu.d2': 'Licence — Informatique, Physique et Mathématiques',
   'edu.score': 'NOTE',
   'contact.head': 'CRÉONS\nQUELQUE\nCHOSE.',
-  'contact.email_l': 'E-MAIL — CLIQUEZ POUR COPIER',
+  'contact.email_l': 'E-MAIL',
   'contact.phone_l': 'TÉLÉPHONE',
   'contact.loc_l': 'LOCALISATION',
   'contact.egg': '// PSST — ESSAYEZ LE CODE KONAMI, OU APPUYEZ SUR ⌘K',

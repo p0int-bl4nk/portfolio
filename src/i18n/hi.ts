@@ -76,7 +76,7 @@ export const hi: Record<string, string | string[]> = {
   'edu.d2': 'बी.एससी — कंप्यूटर साइंस, भौतिकी और गणित',
   'edu.score': 'स्कोर',
   'contact.head': 'आइए\nकुछ\nबनाएँ।',
-  'contact.email_l': 'ईमेल — कॉपी करने के लिए क्लिक करें',
+  'contact.email_l': 'ईमेल',
   'contact.phone_l': 'फ़ोन',
   'contact.loc_l': 'स्थान',
   'contact.egg': '// साइको — कोनामी कोड आज़माएँ, या ⌘K दबाएँ',
