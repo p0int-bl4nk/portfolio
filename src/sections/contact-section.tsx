@@ -42,7 +42,10 @@ export function ContactSection() {
           <div className='text-[11px] text-muted-foreground tracking-[2px] mb-3'>
             {t('contact.email_l')}
           </div>
-          <CopyButton content={EMAIL} className='text-[14px]' />
+          <div className='flex items-center gap-3 text-[14px]'>
+            <span>{EMAIL}</span>
+            <CopyButton content={EMAIL} />
+          </div>
         </div>
 
         {/* PHONE */}

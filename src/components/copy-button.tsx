@@ -25,14 +25,11 @@ export function CopyButton({ content, className }: CopyButtonProps) {
     <button
       onClick={handleCopy}
       className={cn(
-        'cursor-pointer transition-colors duration-150 hover:text-muted-foreground',
+        'text-[11px] text-muted-foreground cursor-pointer transition-colors duration-150 hover:text-foreground',
         className,
       )}
     >
-      {content}
-      <span className='text-[11px] text-muted-foreground ml-2'>
-        {copied ? t('ui.copied') : t('ui.copy')}
-      </span>
+      {copied ? t('ui.copied') : t('ui.copy')}
     </button>
   );
 }
