@@ -22,10 +22,10 @@ export function HeroSection() {
   return (
     <section
       id='home'
-      className='min-h-screen flex flex-col justify-center pt-[54px] px-6 max-xs:px-4'
+      className='min-h-screen flex flex-col justify-center pt-13.5 px-6 max-xs:px-4'
     >
       {/* Meta row */}
-      <div className='flex flex-wrap justify-between gap-2 text-[12px] tracking-[2px] text-muted-foreground border-b border-border pb-5 mb-10'>
+      <div className='flex flex-wrap justify-between gap-2 text-xs tracking-2 text-muted-foreground border-b border-border pb-5 mb-10'>
         <span>{t('hero.role')}</span>
         <span>{t('hero.disc')}</span>
         <span>{t('hero.loc')}</span>
@@ -36,7 +36,7 @@ export function HeroSection() {
 
       {/* Hero name */}
       <h1
-        className='font-black leading-[.86] tracking-[-0.045em] mb-10'
+        className='font-black leading-display tracking-heading mb-10'
         style={{ fontSize: 'clamp(56px, 12.5vw, 184px)' }}
       >
         SACHIN
@@ -48,14 +48,14 @@ export function HeroSection() {
       <div className='flex flex-col md:flex-row gap-10 mb-16 border-border border-t'>
         <div className='max-w-[560px]'>
           <p
-            className='text-[15px] leading-[1.85] pt-5 mb-0'
+            className='text-base leading-body-lg pt-5 mb-0'
             dangerouslySetInnerHTML={{ __html: t('hero.lead') }}
           />
-          <div className='mt-[18px] text-[14px] text-muted-foreground'>
+          <div className='mt-4.5 text-sm text-muted-foreground'>
             $ {t('hero.building')}{' '}
             <span className='text-foreground whitespace-nowrap'>{typed}</span>
             <span
-              className='inline-block w-[8px] h-[15px] bg-foreground align-[-2px] ml-[1px]'
+              className='inline-block w-[8px] h-[15px] bg-foreground align-[-2px] ml-px'
               style={{
                 animation: motion ? 'none' : 'blink 1s step-end infinite',
               }}
@@ -71,10 +71,10 @@ export function HeroSection() {
             { hook: coverage, label: 'COVERAGE' },
           ].map(({ hook, label }) => (
             <div key={label} ref={hook.ref} className='cursor-default'>
-              <div className='text-[34px] font-bold leading-none'>
+              <div className='text-4xl font-bold leading-none'>
                 {hook.display}
               </div>
-              <div className='text-[11px] text-muted-foreground tracking-[1px] mt-1'>
+              <div className='text-xs text-muted-foreground tracking-1 mt-1'>
                 {label}
               </div>
             </div>
@@ -83,7 +83,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll hint */}
-      <div className='flex items-center gap-3 text-[11px] text-muted-foreground tracking-[2px] pb-8'>
+      <div className='flex items-center gap-3 text-xs text-muted-foreground tracking-2 pb-8'>
         <span className='inline-block w-px h-[26px] bg-muted-foreground' />
         {t('hero.scroll')}
       </div>

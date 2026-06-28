@@ -29,7 +29,7 @@ export function SectionLabel({ no, label, className }: SectionLabelProps) {
   return (
     <div
       className={cn(
-        'flex items-center gap-4 text-[12px] tracking-[2px] text-muted-foreground',
+        'flex items-center gap-4 text-xs tracking-2 text-muted-foreground',
         className,
       )}
     >

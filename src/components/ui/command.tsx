@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
+import { SearchIcon, CheckIcon } from 'lucide-react';
+import * as React from 'react';
 
-import { cn } from '@/lib/utils';
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { InputGroup, InputGroupAddon } from '@/components/ui/input-group';
-import { SearchIcon, CheckIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 function Command({
   className,
@@ -121,7 +121,7 @@ function CommandGroup({
     <CommandPrimitive.Group
       data-slot='command-group'
       className={cn(
-        'overflow-hidden text-foreground **:[[cmdk-group-heading]]:px-[18px] **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-[10px] **:[[cmdk-group-heading]]:tracking-[2px] **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground',
+        'overflow-hidden text-foreground **:[[cmdk-group-heading]]:px-4.5 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:tracking-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground',
         className,
       )}
       {...props}

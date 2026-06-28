@@ -9,7 +9,7 @@ export function Toast() {
       className={cn(
         'fixed bottom-[80px] left-1/2 -translate-x-1/2 z-[200] pointer-events-none',
         'bg-foreground text-background border border-foreground',
-        'px-5 py-3 text-[12px] tracking-[1px]',
+        'px-5 py-3 text-xs tracking-1',
       )}
     >
       {toast}

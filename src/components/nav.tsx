@@ -85,12 +85,10 @@ export function Nav() {
           onClick={() => scrollTo('home', motion)}
           className='flex items-center gap-2 shrink-0 cursor-pointer bg-transparent border-0 p-0'
         >
-          <span className='flex items-center justify-center size-[22px] border-[1.5px] border-foreground text-[10px] font-bold leading-none'>
+          <span className='flex items-center justify-center size-5.5 border-[1.5px] border-foreground text-xs font-bold leading-none'>
             SV
           </span>
-          <span className='text-[12px] font-bold tracking-[1px]'>
-            SACHIN VERMA
-          </span>
+          <span className='text-xs font-bold tracking-1'>SACHIN VERMA</span>
         </button>
 
         {/* Center nav links — hidden ≤900px */}
@@ -100,7 +98,7 @@ export function Nav() {
               key={id}
               onClick={() => scrollTo(id, motion)}
               className={cn(
-                'text-[12px] text-foreground transition-opacity duration-200 cursor-pointer bg-transparent border-0 p-0',
+                'text-xs text-foreground transition-opacity duration-200 cursor-pointer bg-transparent border-0 p-0',
                 active === id ? 'opacity-100' : 'opacity-50 hover:opacity-100',
               )}
             >
@@ -113,7 +111,7 @@ export function Nav() {
         <div className='flex items-center gap-2 shrink-0'>
           {/* Clock — hidden ≤760px */}
           {clock && (
-            <span className='hidden sm:block text-[11px] text-muted-foreground tabular-nums'>
+            <span className='hidden sm:block text-xs text-muted-foreground tabular-nums'>
               IST {clock}
             </span>
           )}
@@ -122,7 +120,7 @@ export function Nav() {
           <DropdownMenu>
             <DropdownMenuTrigger
               aria-label='Select language'
-              className='border border-border text-[11px] px-[9px] py-[5px] bg-transparent cursor-pointer'
+              className='border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
             >
               {LANG_CODE[lang] ?? 'EN'} ▾
             </DropdownMenuTrigger>
@@ -131,7 +129,7 @@ export function Nav() {
                 <DropdownMenuItem
                   key={code}
                   onClick={() => setLang(code)}
-                  className={cn('text-[12px]', lang === code && 'bg-muted')}
+                  className={cn('text-xs', lang === code && 'bg-muted')}
                 >
                   {label}
                 </DropdownMenuItem>
@@ -142,7 +140,7 @@ export function Nav() {
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className='border border-border text-[11px] px-[9px] py-[5px] bg-transparent cursor-pointer'
+            className='border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
           >
             {themeDark ? 'LIGHT' : 'DARK'}
           </button>
@@ -153,7 +151,7 @@ export function Nav() {
             onClick={() =>
               document.dispatchEvent(new CustomEvent('open-palette'))
             }
-            className='hidden xs:block border border-border text-[11px] px-[9px] py-[5px] bg-transparent cursor-pointer'
+            className='hidden xs:block border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
           >
             ⌘K
           </button>

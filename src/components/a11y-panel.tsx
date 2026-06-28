@@ -31,7 +31,7 @@ function PillToggle({
     <button
       onClick={onToggle}
       className={cn(
-        'text-[11px] px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+        'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
         on
           ? 'bg-foreground text-background border-foreground'
           : 'bg-transparent text-foreground',
@@ -68,17 +68,17 @@ export function A11yPanel() {
           <button
             onClick={() => setTextStep(textStep - 1)}
             disabled={textStep <= -1}
-            className='border border-border text-[12px] px-2 py-1 cursor-pointer disabled:opacity-30'
+            className='border border-border text-xs px-2 py-1 cursor-pointer disabled:opacity-30'
           >
             A−
           </button>
-          <span className='text-[11px] text-muted-foreground w-8 text-center'>
+          <span className='text-xs text-muted-foreground w-8 text-center'>
             {ZOOM_MAP[textStep]}
           </span>
           <button
             onClick={() => setTextStep(textStep + 1)}
             disabled={textStep >= 3}
-            className='border border-border text-[12px] px-2 py-1 cursor-pointer disabled:opacity-30'
+            className='border border-border text-xs px-2 py-1 cursor-pointer disabled:opacity-30'
           >
             A+
           </button>
@@ -94,7 +94,7 @@ export function A11yPanel() {
               if (themeDark) toggleTheme();
             }}
             className={cn(
-              'text-[11px] px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+              'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
               !themeDark && 'bg-foreground text-background',
             )}
           >
@@ -105,7 +105,7 @@ export function A11yPanel() {
               if (!themeDark) toggleTheme();
             }}
             className={cn(
-              'text-[11px] px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+              'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
               themeDark && 'bg-foreground text-background',
             )}
           >
@@ -163,7 +163,7 @@ export function A11yPanel() {
   return (
     <Popover>
       <PopoverTrigger
-        className='fixed left-[18px] bottom-[18px] z-[90] size-[50px] rounded-full border border-border bg-background text-foreground text-[11px] font-bold shadow-[0_6px_20px_rgba(0,0,0,.14)] cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
+        className='fixed left-4.5 bottom-4.5 z-[90] size-12.5 rounded-full border border-border bg-background text-foreground text-xs font-bold shadow-nav cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
         aria-label='Accessibility options'
       >
         A11Y
@@ -171,9 +171,9 @@ export function A11yPanel() {
       <PopoverContent
         side='top'
         align='start'
-        className='w-[304px] p-0 border-border rounded-none shadow-[0_24px_60px_rgba(0,0,0,.26)]'
+        className='w-[304px] p-0 border-border rounded-none shadow-toast'
       >
-        <div className='px-4 py-3 border-b border-border text-[11px] tracking-[1px] font-bold'>
+        <div className='px-4 py-3 border-b border-border text-xs tracking-1 font-bold'>
           {t('a11y.title')}
         </div>
         {rows.map(({ label, control }) => (
@@ -181,14 +181,14 @@ export function A11yPanel() {
             key={label}
             className='flex justify-between items-center px-4 py-3 border-b border-border'
           >
-            <span className='text-[12px] text-muted-foreground'>{label}</span>
+            <span className='text-xs text-muted-foreground'>{label}</span>
             {control}
           </div>
         ))}
         <div className='px-4 py-3'>
           <button
             onClick={resetA11y}
-            className='w-full text-[11px] border border-border py-2 cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150'
+            className='w-full text-xs border border-border py-2 cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150'
           >
             {t('a11y.reset')}
           </button>

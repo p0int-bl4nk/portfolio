@@ -28,14 +28,14 @@ export function EducationSection() {
             key={dates}
             className='grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-4 py-6 border-b border-border items-start'
           >
-            <div className='text-[12px] text-muted-foreground'>{dates}</div>
+            <div className='text-xs text-muted-foreground'>{dates}</div>
             <div>
-              <div className='text-[18px] font-bold mb-1'>{degree}</div>
-              <div className='text-[14px] text-muted-foreground'>{inst}</div>
+              <div className='text-lg font-bold mb-1'>{degree}</div>
+              <div className='text-sm text-muted-foreground'>{inst}</div>
             </div>
             <div className='text-right'>
-              <div className='text-[22px] font-bold'>{score}</div>
-              <div className='text-[11px] text-muted-foreground tracking-[1px]'>
+              <div className='text-2xl font-bold'>{score}</div>
+              <div className='text-xs text-muted-foreground tracking-1'>
                 {unit}
               </div>
             </div>

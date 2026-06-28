@@ -26,17 +26,17 @@ export function AwardsSection() {
               key={i}
               className='p-6 border-b border-border [&:nth-child(odd)]:border-r [&:nth-child(odd)]:md:border-r'
             >
-              <div className='text-[11px] text-muted-foreground tracking-[1px] mb-2'>
+              <div className='text-xs text-muted-foreground tracking-1 mb-2'>
                 {date}
               </div>
-              <div className='text-[20px] font-bold mb-1'>{title}</div>
-              <div className='text-[13px] text-muted-foreground'>{sub}</div>
+              <div className='text-xl font-bold mb-1'>{title}</div>
+              <div className='text-sm text-muted-foreground'>{sub}</div>
             </div>
           ))}
         </div>
         {/* Certifications */}
         <div className='p-6 border-t border-border'>
-          <div className='text-[11px] text-muted-foreground tracking-[1px] mb-6'>
+          <div className='text-xs text-muted-foreground tracking-1 mb-6'>
             {t('awards.certs')}
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-8'>
@@ -48,7 +48,7 @@ export function AwardsSection() {
             ].map(({ name, org, year }) => (
               <div
                 key={name}
-                className='flex justify-between items-center py-3 border-b border-border text-[14px]'
+                className='flex justify-between items-center py-3 border-b border-border text-sm'
               >
                 <span>
                   {name} <span className='text-muted-foreground'>· {org}</span>

@@ -29,7 +29,7 @@ export function CopyButton({ content, className }: CopyButtonProps) {
     <button
       onClick={handleCopy}
       className={cn(
-        'text-[11px] text-muted-foreground cursor-pointer transition-colors duration-150 hover:text-foreground',
+        'text-xs text-muted-foreground cursor-pointer transition-colors duration-150 hover:text-foreground',
         className,
       )}
     >

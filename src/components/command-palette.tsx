@@ -93,16 +93,17 @@ export function CommandPalette() {
     <Dialog open={open} onOpenChange={o => setOpen(o)}>
       <DialogContent
         showCloseButton={false}
-        className='p-0 border-foreground rounded-none shadow-[0_30px_80px_rgba(0,0,0,.3)] top-[14vh] translate-y-0 max-w-[min(960px,92vw)]'
+        className='p-0 border-foreground rounded-none shadow-palette top-[14vh] translate-y-0 max-w-[min(960px,92vw)]'
+        size='xl'
       >
         <DialogTitle className='sr-only'>Command Palette</DialogTitle>
         <Command>
           <CommandInput
             placeholder={t('palette.placeholder')}
-            className='text-[13.5px]'
+            className='text-sm'
           />
           <CommandList>
-            <CommandEmpty className='py-5 text-center text-[13px] text-muted-foreground'>
+            <CommandEmpty className='py-5 text-center text-sm text-muted-foreground'>
               No results.
             </CommandEmpty>
             <CommandGroup heading='Navigation'>
@@ -110,12 +111,10 @@ export function CommandPalette() {
                 <CommandItem
                   key={id}
                   onSelect={() => runCommand(run)}
-                  className='flex justify-between text-[13.5px] px-[18px] py-[11px]'
+                  className='flex justify-between text-sm px-4.5 py-2.75'
                 >
                   <span>{t(`cmd.${id}`)}</span>
-                  <span className='text-[11px] text-muted-foreground'>
-                    {hint}
-                  </span>
+                  <span className='text-xs text-muted-foreground'>{hint}</span>
                 </CommandItem>
               ))}
             </CommandGroup>
@@ -124,17 +123,15 @@ export function CommandPalette() {
                 <CommandItem
                   key={id}
                   onSelect={() => runCommand(run)}
-                  className='flex justify-between text-[13.5px] px-[18px] py-[11px]'
+                  className='flex justify-between text-sm px-4.5 py-2.75'
                 >
                   <span>{t(`cmd.${id}`)}</span>
-                  <span className='text-[11px] text-muted-foreground'>
-                    {hint}
-                  </span>
+                  <span className='text-xs text-muted-foreground'>{hint}</span>
                 </CommandItem>
               ))}
             </CommandGroup>
           </CommandList>
-          <div className='flex gap-4 px-[18px] py-[11px] border-t border-border text-[10px] text-muted-foreground tracking-[1px]'>
+          <div className='flex gap-4 px-4.5 py-2.75 border-t border-border text-xs text-muted-foreground tracking-1'>
             <span>↑↓ NAVIGATE</span>
             <span>↵ SELECT</span>
             <span>ESC CLOSE</span>

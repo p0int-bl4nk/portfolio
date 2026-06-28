@@ -7,17 +7,15 @@ export function AboutSection() {
   return (
     <Section id='about'>
       <SectionLabel no='01' label={t('sec.about')} className='mb-14' />
-      <div className='grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-[60px]'>
+      <div className='grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-15'>
         <div>
-          <p className='text-[26px] font-bold leading-[1.35] tracking-[-0.02em]'>
+          <p className='text-2xl font-bold leading-snug tracking-subheading'>
             {t('about.big')}
           </p>
         </div>
         <div>
-          <p className='text-[15px] leading-[1.95] mb-[18px]'>
-            {t('about.p1')}
-          </p>
-          <p className='text-[15px] leading-[1.95] text-muted-foreground mb-[34px]'>
+          <p className='text-base leading-body-xl mb-4.5'>{t('about.p1')}</p>
+          <p className='text-base leading-body-xl text-muted-foreground mb-8.5'>
             {t('about.p2')}
           </p>
           {/* 2×2 fact grid */}
@@ -45,13 +43,13 @@ export function AboutSection() {
                 valueClass: '',
               },
             ].map(({ label, value, dot }, i) => (
-              <div key={i} className='border-r border-b border-border p-[14px]'>
-                <div className='text-[11px] text-muted-foreground tracking-[1px] mb-1'>
+              <div key={i} className='border-r border-b border-border p-3.5'>
+                <div className='text-xs text-muted-foreground tracking-1 mb-1'>
                   {label}
                 </div>
-                <div className='text-[14px] flex items-center gap-[7px]'>
+                <div className='text-sm flex items-center gap-1.75'>
                   {dot && (
-                    <span className='size-[7px] rounded-full bg-accent-green shrink-0' />
+                    <span className='size-1.75 rounded-full bg-accent-green shrink-0' />
                   )}
                   {value}
                 </div>

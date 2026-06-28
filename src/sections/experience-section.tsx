@@ -33,9 +33,9 @@ function Metric({
     motion,
   });
   return (
-    <div ref={ref} className='py-[22px] px-[18px] cursor-default'>
-      <div className='text-[38px] font-black leading-none'>{display}</div>
-      <div className='text-[11px] text-muted-foreground tracking-[1px] mt-1'>
+    <div ref={ref} className='py-5.5 px-4.5 cursor-default'>
+      <div className='text-4xl font-black leading-none'>{display}</div>
+      <div className='text-xs text-muted-foreground tracking-1 mt-1'>
         {label}
       </div>
     </div>
@@ -60,10 +60,10 @@ export function ExperienceSection() {
 
   return (
     <Section id='experience'>
-      <SectionLabel no='03' label={t('sec.experience')} className='mb-[46px]' />
+      <SectionLabel no='03' label={t('sec.experience')} className='mb-11.5' />
 
       {/* Metrics band */}
-      <div className='grid grid-cols-2 sm:grid-cols-4 border-y border-foreground mb-[60px]'>
+      <div className='grid grid-cols-2 sm:grid-cols-4 border-y border-foreground mb-15'>
         {[
           { prefix: '↓', target: 90, suffix: '%', labelKey: 'exp.manual' },
           { prefix: '↓', target: 60, suffix: '%', labelKey: 'exp.latency' },
@@ -111,12 +111,10 @@ export function ExperienceSection() {
           >
             {/* Custom trigger row */}
             <div className='grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 py-5 items-start'>
-              <div className='text-[12px] text-muted-foreground'>{date}</div>
+              <div className='text-xs text-muted-foreground'>{date}</div>
               <div className='space-y-1'>
-                <div className='text-[22px] font-bold'>{title}</div>
-                <div className='text-[14px] text-muted-foreground'>
-                  {employer}
-                </div>
+                <div className='text-2xl font-bold'>{title}</div>
+                <div className='text-sm text-muted-foreground'>{employer}</div>
               </div>
               <button
                 onClick={() =>
@@ -127,7 +125,7 @@ export function ExperienceSection() {
                   )
                 }
                 className={cn(
-                  'text-[11px] border border-border px-[12px] py-[7px] transition-colors duration-150 cursor-pointer',
+                  'text-xs border border-border px-[12px] py-[7px] transition-colors duration-150 cursor-pointer',
                   'hover:bg-foreground hover:text-background hover:border-foreground',
                 )}
               >
@@ -141,9 +139,9 @@ export function ExperienceSection() {
                   {bullets.map(key => (
                     <div
                       key={key}
-                      className='flex gap-[14px] text-[14px] leading-[1.7]'
+                      className='flex gap-3.5 text-sm leading-body'
                     >
-                      <span className='text-muted-foreground shrink-0 mt-[1px]'>
+                      <span className='text-muted-foreground shrink-0 mt-px'>
                         →
                       </span>
                       <span dangerouslySetInnerHTML={{ __html: t(key) }} />
