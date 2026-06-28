@@ -88,7 +88,7 @@ export function CommandPalette() {
     <Dialog open={open} onOpenChange={o => setOpen(o)}>
       <DialogContent
         showCloseButton={false}
-        className='p-0 border-foreground shadow-[0_30px_80px_rgba(0,0,0,.3)] top-[14vh] translate-y-0 max-w-[min(560px,92vw)]'
+        className='p-0 border-foreground rounded-none shadow-[0_30px_80px_rgba(0,0,0,.3)] top-[14vh] translate-y-0 max-w-[min(560px,92vw)]'
       >
         <DialogTitle className='sr-only'>Command Palette</DialogTitle>
         <Command>
