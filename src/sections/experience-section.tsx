@@ -62,7 +62,6 @@ export function ExperienceSection() {
     <Section id='experience'>
       <SectionLabel no='03' label={t('sec.experience')} className='mb-11.5' />
 
-      {/* Metrics band */}
       <div className='grid grid-cols-2 sm:grid-cols-4 border-y border-foreground mb-15'>
         {[
           { prefix: '↓', target: 90, suffix: '%', labelKey: 'exp.manual' },
@@ -82,7 +81,6 @@ export function ExperienceSection() {
         ))}
       </div>
 
-      {/* Accordion */}
       <Accordion
         multiple
         value={open}
@@ -109,7 +107,6 @@ export function ExperienceSection() {
             value={value}
             className='border-b border-border'
           >
-            {/* Custom trigger row */}
             <div className='grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 py-5 items-start'>
               <div className='text-xs text-muted-foreground'>{date}</div>
               <div className='space-y-1'>

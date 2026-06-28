@@ -8,7 +8,6 @@ export function AwardsSection() {
     <Section id='awards'>
       <SectionLabel no='04' label={t('sec.awards')} className='mb-14' />
       <div className='border border-border'>
-        {/* Awards 2-up */}
         <div className='grid grid-cols-1 md:grid-cols-2'>
           {[
             {
@@ -34,7 +33,6 @@ export function AwardsSection() {
             </div>
           ))}
         </div>
-        {/* Certifications */}
         <div className='p-6 border-t border-border'>
           <div className='text-xs text-muted-foreground tracking-1 mb-6'>
             {t('awards.certs')}

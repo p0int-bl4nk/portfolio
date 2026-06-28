@@ -16,7 +16,6 @@ export function ContactSection() {
     <Section id='contact'>
       <SectionLabel no='06' label={t('sec.contact')} className='mb-15' />
 
-      {/* Big heading */}
       <h2
         style={{ fontSize: 'clamp(40px, 8vw, 110px)' }}
         className='font-black leading-display tracking-heading mb-15'
@@ -28,9 +27,7 @@ export function ContactSection() {
         ))}
       </h2>
 
-      {/* Contact grid */}
       <div className='grid grid-cols-1 md:grid-cols-2 border-t border-l border-border mb-15'>
-        {/* EMAIL */}
         <div className='border-r border-b border-border p-6'>
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             {t('contact.email_l')}
@@ -46,7 +43,6 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* PHONE */}
         <div className='border-r border-b border-border p-6'>
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             {t('contact.phone_l')}
@@ -61,7 +57,6 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* LINKEDIN */}
         <div className='border-r border-b border-border p-6'>
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             LINKEDIN
@@ -78,7 +73,6 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* LOCATION */}
         <div className='border-r border-b border-border p-6'>
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             {t('contact.loc_l')}
@@ -87,7 +81,6 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* Footer */}
       <div className='flex gap-1 justify-between items-center text-xs text-muted-foreground'>
         <span>© 2025 SACHIN VERMA — BUILT IN JETBRAINS MONO</span>
         <span>↑↑↓↓←→←→BA</span>

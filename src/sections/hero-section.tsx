@@ -24,7 +24,6 @@ export function HeroSection() {
       id='home'
       className='min-h-screen flex flex-col justify-center pt-24 md:pt-13.5 px-6 max-xs:px-4'
     >
-      {/* Meta row */}
       <div className='flex flex-wrap justify-between gap-2 text-xs tracking-2 text-muted-foreground border-b border-border pb-5 mb-10'>
         <span>{t('hero.role')}</span>
         <span>{t('hero.disc')}</span>
@@ -34,7 +33,6 @@ export function HeroSection() {
 
       <SectionLabel no='00' label={t('sec.index')} className='mb-8' />
 
-      {/* Hero name */}
       <h1
         className='font-black leading-display tracking-heading mb-10'
         style={{ fontSize: 'clamp(56px, 12.5vw, 184px)' }}
@@ -44,7 +42,6 @@ export function HeroSection() {
         VERMA
       </h1>
 
-      {/* Lead + stats row */}
       <div className='flex flex-col md:flex-row gap-10 mb-16 border-border border-t'>
         <div className='max-w-[560px]'>
           <p
@@ -63,7 +60,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Stats */}
         <div className='flex gap-9 items-start pt-5'>
           {[
             { hook: years, label: 'YEARS' },
@@ -82,7 +78,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll hint */}
       <div className='flex items-center gap-3 text-xs text-muted-foreground tracking-2 pb-8'>
         <span className='inline-block w-px h-[26px] bg-muted-foreground' />
         {t('hero.scroll')}

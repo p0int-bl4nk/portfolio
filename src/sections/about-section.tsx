@@ -18,7 +18,6 @@ export function AboutSection() {
           <p className='text-base leading-body-xl text-muted-foreground mb-8.5'>
             {t('about.p2')}
           </p>
-          {/* 2×2 fact grid */}
           <div className='grid grid-cols-2 border-t border-l border-border'>
             {[
               {

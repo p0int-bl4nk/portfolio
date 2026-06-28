@@ -80,7 +80,6 @@ export function Nav() {
   return (
     <nav className='fixed top-0 left-0 right-0 h-[54px] z-50 border-b border-border bg-background/90 backdrop-blur-[6px] backdrop-saturate-[180%]'>
       <div className='mx-auto max-w-[1240px] h-full px-6 flex items-center justify-between gap-4'>
-        {/* Logo */}
         <button
           onClick={() => scrollTo('home', motion)}
           className='flex items-center gap-2 shrink-0 cursor-pointer bg-transparent border-0 p-0'
@@ -91,7 +90,6 @@ export function Nav() {
           <span className='text-xs font-bold tracking-1'>SACHIN VERMA</span>
         </button>
 
-        {/* Center nav links — hidden ≤900px */}
         <div className='hidden md:flex items-center gap-5'>
           {NAV_LINKS.map(({ id, label, no }) => (
             <button
@@ -107,16 +105,13 @@ export function Nav() {
           ))}
         </div>
 
-        {/* Right cluster */}
         <div className='flex items-center gap-2 shrink-0'>
-          {/* Clock — hidden ≤760px */}
           {clock && (
             <span className='hidden sm:block text-xs text-muted-foreground tabular-nums'>
               IST {clock}
             </span>
           )}
 
-          {/* Language switcher */}
           <DropdownMenu>
             <DropdownMenuTrigger
               aria-label='Select language'
@@ -137,7 +132,6 @@ export function Nav() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
             className='border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
@@ -145,7 +139,6 @@ export function Nav() {
             {themeDark ? 'LIGHT' : 'DARK'}
           </button>
 
-          {/* ⌘K button — hidden ≤540px */}
           <button
             aria-label='Open command palette'
             onClick={() =>
