@@ -43,7 +43,12 @@ export function ContactSection() {
             {t('contact.email_l')}
           </div>
           <div className='flex items-center gap-3 text-[14px]'>
-            <span>{EMAIL}</span>
+            <a
+              href={`mailto:${EMAIL}`}
+              className='hover:text-muted-foreground transition-colors duration-150'
+            >
+              {EMAIL}
+            </a>
             <CopyButton content={EMAIL} />
           </div>
         </div>

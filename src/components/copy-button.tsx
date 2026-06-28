@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { usePortfolio } from '../context/portfolio-context';
 import { cn } from '../lib/utils';
 
 interface CopyButtonProps {
@@ -9,6 +10,7 @@ interface CopyButtonProps {
 
 export function CopyButton({ content, className }: CopyButtonProps) {
   const { t } = useTranslation();
+  const { showToast } = usePortfolio();
   const [copied, setCopied] = useState(false);
 
   function handleCopy() {
@@ -16,6 +18,7 @@ export function CopyButton({ content, className }: CopyButtonProps) {
       .writeText(content)
       .then(() => {
         setCopied(true);
+        showToast(t('ui.copied'));
         setTimeout(() => setCopied(false), 1600);
       })
       .catch(() => {});
