@@ -24,9 +24,13 @@ export function App() {
       const h1 = document.querySelector<HTMLElement>('#hero h1');
       if (h1) {
         h1.classList.add('glitch');
+        const t = setTimeout(() => h1.classList.remove('glitch'), 500);
         h1.addEventListener(
           'animationend',
-          () => h1.classList.remove('glitch'),
+          () => {
+            clearTimeout(t);
+            h1.classList.remove('glitch');
+          },
           { once: true },
         );
       }
