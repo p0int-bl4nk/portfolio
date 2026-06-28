@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/PortfolioContext';
+import { usePortfolio } from '../context/portfolio-context';
 import { useActiveSection } from '../hooks/index';
 import {
   DropdownMenu,

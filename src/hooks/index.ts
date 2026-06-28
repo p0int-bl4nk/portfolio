@@ -1,4 +1,4 @@
-export { useCountUp } from './useCountUp';
-export { useTypingEffect } from './useTypingEffect';
-export { useActiveSection } from './useActiveSection';
-export { useKonami } from './useKonami';
+export { useCountUp } from './use-count-up';
+export { useTypingEffect } from './use-typing-effect';
+export { useActiveSection } from './use-active-section';
+export { useKonami } from './use-konami';

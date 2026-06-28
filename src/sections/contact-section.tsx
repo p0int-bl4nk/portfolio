@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/PortfolioContext';
+import { usePortfolio } from '../context/portfolio-context';
 
 const EMAIL = 'skv860254262@gmail.com';
 const PHONE = '+91 98278 86094';

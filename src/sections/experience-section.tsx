@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/PortfolioContext';
-import { useCountUp } from '../hooks/useCountUp';
+import { usePortfolio } from '../context/portfolio-context';
+import { useCountUp } from '../hooks/use-count-up';
 import {
   Accordion,
   AccordionContent,

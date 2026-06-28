@@ -1,4 +1,4 @@
-import { usePortfolio } from '../context/PortfolioContext';
+import { usePortfolio } from '../context/portfolio-context';
 import { cn } from '../lib/utils';
 
 export function Toast() {

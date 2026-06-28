@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { usePortfolio } from '../context/PortfolioContext';
+import { usePortfolio } from '../context/portfolio-context';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { cn } from '../lib/utils';
 
