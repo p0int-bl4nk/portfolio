@@ -157,13 +157,11 @@ export function A11yPanel() {
 
   return (
     <Popover>
-      <PopoverTrigger>
-        <button
-          className='fixed left-[18px] bottom-[18px] z-[90] size-[50px] rounded-full border border-border bg-background text-foreground text-[11px] font-bold shadow-[0_6px_20px_rgba(0,0,0,.14)] cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
-          aria-label='Accessibility options'
-        >
-          A11Y
-        </button>
+      <PopoverTrigger
+        className='fixed left-[18px] bottom-[18px] z-[90] size-[50px] rounded-full border border-border bg-background text-foreground text-[11px] font-bold shadow-[0_6px_20px_rgba(0,0,0,.14)] cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
+        aria-label='Accessibility options'
+      >
+        A11Y
       </PopoverTrigger>
       <PopoverContent
         side='top'
