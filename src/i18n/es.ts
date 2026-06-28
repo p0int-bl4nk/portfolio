@@ -6,6 +6,8 @@ export const es: Record<string, string | string[]> = {
   'nav.edu': 'Estudios',
   'nav.contact': 'Contacto',
   'hero.role': 'INGENIERO DE DESARROLLO DE SOFTWARE II',
+  'hero.disc': 'FULL-STACK · BACKEND',
+  'hero.loc': 'GURUGRAM, IN',
   'hero.scroll': 'DESPLÁZATE PARA EXPLORAR',
   'hero.building': 'construyendo ahora',
   'hero.lead':
@@ -31,6 +33,8 @@ export const es: Record<string, string | string[]> = {
   'about.status_l': 'ESTADO',
   'about.status_v': 'Disponible para trabajar',
   'skills.intro': ' tecnologías en 8 dominios — pasa el cursor para resaltar.',
+  'sk.frontend': 'Frontend',
+  'sk.backend': 'Backend',
   'sk.databases': 'Bases de datos',
   'sk.messaging': 'Mensajería',
   'sk.security': 'Seguridad',
@@ -42,6 +46,7 @@ export const es: Record<string, string | string[]> = {
   'exp.coverage': 'COBERTURA DE PRUEBAS',
   'exp.typesafe': 'SEGURIDAD DE TIPOS',
   'exp.r1date': '2022 — HOY',
+  'exp.r2date': '2021 — 2022',
   'exp.r1title': 'Ingeniero de Desarrollo de Software II',
   'exp.r2title': 'Especialista de Software',
   'exp.r1b1':

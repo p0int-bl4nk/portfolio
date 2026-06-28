@@ -119,7 +119,10 @@ export function Nav() {
 
           {/* Language switcher */}
           <DropdownMenu>
-            <DropdownMenuTrigger className='border border-border text-[11px] px-[9px] py-[5px] bg-transparent cursor-pointer'>
+            <DropdownMenuTrigger
+              aria-label='Select language'
+              className='border border-border text-[11px] px-[9px] py-[5px] bg-transparent cursor-pointer'
+            >
               {LANG_CODE[lang] ?? 'EN'} ▾
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end' className='min-w-[120px]'>
@@ -145,6 +148,7 @@ export function Nav() {
 
           {/* ⌘K button — hidden ≤540px */}
           <button
+            aria-label='Open command palette'
             onClick={() =>
               document.dispatchEvent(new CustomEvent('open-palette'))
             }

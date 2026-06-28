@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface Options {
   decimals?: number;
@@ -43,6 +43,12 @@ export function useCountUp(target: number, options: Options = {}) {
     },
     [target, decimals, suffix, prefix, duration, steps, final],
   );
+
+  useEffect(() => {
+    return () => {
+      if (iv.current !== undefined) clearInterval(iv.current);
+    };
+  }, []);
 
   return { display, start };
 }

@@ -68,8 +68,10 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
     savePrefs(prefs);
   }, [prefs]);
 
+  const mountedRef = useRef(false);
   useEffect(() => {
-    // On mount, restore language from prefs
+    if (mountedRef.current) return; // only run on mount
+    mountedRef.current = true;
     document.documentElement.lang = prefs.lang;
     tryChangeLanguage(prefs.lang);
   }, [prefs.lang]);
@@ -108,6 +110,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
         ul: false,
         motion: false,
         dys: false,
+        themeDark: false,
       }),
     toast,
     showToast,

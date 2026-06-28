@@ -31,7 +31,7 @@ export function CommandPalette() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setOpen(true);
+        setOpen(prev => !prev);
       }
       if (
         e.key === '/' &&
@@ -66,8 +66,12 @@ export function CommandPalette() {
       id: 'copy',
       hint: 'mail',
       run: () => {
-        navigator.clipboard.writeText('skv860254262@gmail.com').catch(() => {});
-        showToast('email copied');
+        navigator.clipboard
+          .writeText('skv860254262@gmail.com')
+          .then(() => {
+            showToast('email copied');
+          })
+          .catch(() => {});
       },
     },
     {

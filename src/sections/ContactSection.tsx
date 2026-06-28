@@ -13,10 +13,14 @@ export function ContactSection() {
   const [copied, setCopied] = useState(false);
 
   function copyEmail() {
-    navigator.clipboard.writeText(EMAIL).catch(() => {});
-    setCopied(true);
-    showToast(t('ui.copied'));
-    setTimeout(() => setCopied(false), 1600);
+    navigator.clipboard
+      .writeText(EMAIL)
+      .then(() => {
+        setCopied(true);
+        showToast(t('ui.copied'));
+        setTimeout(() => setCopied(false), 1600);
+      })
+      .catch(() => {});
   }
 
   const headLines = t('contact.head').split('\n');
