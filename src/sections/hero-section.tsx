@@ -19,7 +19,7 @@ export function HeroSection() {
   const words = t('typed', { returnObjects: true }) as string[];
   const typed = useTypingEffect(words, motion);
 
-  const years = useCountUp(3.5, { decimals: 1, suffix: '+', duration: 1400 });
+  const years = useCountUp(5, { suffix: '+', duration: 1400 });
   const awards = useCountUp(2, { suffix: '×', duration: 1400 });
   const coverage = useCountUp(94, { suffix: '%', duration: 1400 });
 

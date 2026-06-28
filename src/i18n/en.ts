@@ -13,7 +13,7 @@ export const en = {
   'hero.scroll': 'SCROLL TO EXPLORE',
   'hero.building': 'currently building',
   'hero.lead':
-    'I design and deliver scalable, high-performance web applications and backend systems. 3.5+ years across the full stack — currently building <u>at Policybazaar</u>.',
+    'I design and deliver scalable, high-performance web applications and backend systems. 5+ years across the full stack — currently building <u>at Policybazaar</u>.',
   // Section labels
   'sec.index': 'INDEX',
   'sec.about': 'ABOUT',
