@@ -21,7 +21,7 @@ export function App() {
     toggleTheme();
     showToast('// easter egg: konami code activated 🎮');
     if (!motion) {
-      const h1 = document.querySelector<HTMLElement>('#hero h1');
+      const h1 = document.querySelector<HTMLElement>('#home h1');
       if (h1) {
         h1.classList.add('glitch');
         const t = setTimeout(() => h1.classList.remove('glitch'), 500);
