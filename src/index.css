@@ -23,8 +23,6 @@
   --font-readable: 'Atkinson Hyperlegible', sans-serif;
 
   --breakpoint-xs: 540px;
-  --breakpoint-sm: 760px;
-  --breakpoint-md: 900px;
 }
 
 :root {
