@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useTypingEffect(words: string[], motion: boolean): string {
   const [text, setText] = useState(motion ? (words[0] ?? '') : '');
-  const gen = useRef(0);
 
   useEffect(() => {
     if (!words.length) return;
@@ -11,16 +10,19 @@ export function useTypingEffect(words: string[], motion: boolean): string {
       return;
     }
 
-    const myGen = ++gen.current;
+    const controller = new AbortController();
+    const { signal } = controller;
     let w = 0,
       c = 0,
       deleting = false;
     let timer: ReturnType<typeof setTimeout>;
 
     const tick = () => {
-      if (gen.current !== myGen) return;
+      if (signal.aborted) return;
+
       const word = words[w] ?? '';
       setText(word.slice(0, c));
+
       if (!deleting) {
         if (c < word.length) {
           c++;
@@ -41,8 +43,9 @@ export function useTypingEffect(words: string[], motion: boolean): string {
       }
     };
     tick();
+
     return () => {
-      gen.current++;
+      controller.abort();
       clearTimeout(timer);
     };
   }, [words, motion]);
