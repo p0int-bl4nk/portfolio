@@ -1,9 +1,16 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { AnimateNumber } from '@/components/animate-number';
 import { SectionLabel } from '@/components/section';
+import { Typewriter } from '@/components/typewriter';
 import { usePortfolio } from '@/context/portfolio-context';
-import { useTypingEffect, useCountUp } from '@/hooks';
+
+const STATS = [
+  { target: 5, suffix: '+', label: 'YEARS' },
+  { target: 2, suffix: '×', label: 'AWARDS' },
+  { target: 94, suffix: '%', label: 'COVERAGE' },
+] as const;
 
 export function HeroSection() {
   const { t } = useTranslation();
@@ -13,11 +20,6 @@ export function HeroSection() {
     () => t('typed', { returnObjects: true }) as string[],
     [t],
   );
-  const typed = useTypingEffect(words, motion);
-
-  const years = useCountUp(5, { suffix: '+', duration: 1400, motion });
-  const awards = useCountUp(2, { suffix: '×', duration: 1400, motion });
-  const coverage = useCountUp(94, { suffix: '%', duration: 1400, motion });
 
   return (
     <section
@@ -50,25 +52,24 @@ export function HeroSection() {
           />
           <div className='mt-4.5 text-sm text-muted-foreground'>
             $ {t('hero.building')}{' '}
-            <span className='text-foreground whitespace-nowrap'>{typed}</span>
-            <span
-              className='inline-block w-[8px] h-[15px] bg-foreground align-[-2px] ml-px'
-              style={{
-                animation: motion ? 'none' : 'blink 1s step-end infinite',
-              }}
+            <Typewriter
+              words={words}
+              reducedMotion={motion}
+              className='text-foreground whitespace-nowrap'
             />
           </div>
         </div>
 
         <div className='flex gap-9 items-start pt-5'>
-          {[
-            { hook: years, label: 'YEARS' },
-            { hook: awards, label: 'AWARDS' },
-            { hook: coverage, label: 'COVERAGE' },
-          ].map(({ hook, label }) => (
-            <div key={label} ref={hook.ref} className='cursor-default'>
+          {STATS.map(({ target, suffix, label }) => (
+            <div key={label} className='cursor-default'>
               <div className='text-4xl font-bold leading-none'>
-                {hook.display}
+                <AnimateNumber
+                  target={target}
+                  suffix={suffix}
+                  duration={1400}
+                  reducedMotion={motion}
+                />
               </div>
               <div className='text-xs text-muted-foreground tracking-1 mt-1'>
                 {label}

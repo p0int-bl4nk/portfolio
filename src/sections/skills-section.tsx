@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
+import { AnimateNumber } from '@/components/animate-number';
 import { Section, SectionLabel } from '@/components/section';
 import { usePortfolio } from '@/context/portfolio-context';
-import { useCountUp } from '@/hooks';
 
 const SKILL_GROUPS = [
   {
@@ -69,16 +69,18 @@ const SKILL_GROUPS = [
 export function SkillsSection() {
   const { t } = useTranslation();
   const { motion } = usePortfolio();
-  const count = useCountUp(40, { suffix: '+', duration: 1400, motion });
 
   return (
     <Section id='skills'>
       <SectionLabel no='02' label={t('sec.skills')} className='mb-5' />
-      <p
-        ref={count.ref}
-        className='text-xs text-muted-foreground mb-11.5 cursor-default'
-      >
-        <span className='text-foreground font-black'>{count.display}</span>
+      <p className='text-xs text-muted-foreground mb-11.5 cursor-default'>
+        <AnimateNumber
+          target={40}
+          suffix='+'
+          duration={1400}
+          reducedMotion={motion}
+          className='text-foreground font-black'
+        />
         {t('skills.intro')}
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2'>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { AnimateNumber } from '@/components/animate-number';
 import { Section, SectionLabel } from '@/components/section';
 import {
   Accordion,
@@ -8,7 +9,6 @@ import {
   AccordionItem,
 } from '@/components/ui/accordion';
 import { usePortfolio } from '@/context/portfolio-context';
-import { useCountUp } from '@/hooks/use-count-up';
 import { cn } from '@/lib/utils';
 
 function Metric({
@@ -26,15 +26,17 @@ function Metric({
   label: string;
   motion: boolean;
 }) {
-  const { display, ref } = useCountUp(target, {
-    prefix,
-    decimals,
-    suffix,
-    motion,
-  });
   return (
-    <div ref={ref} className='py-5.5 px-4.5 cursor-default'>
-      <div className='text-4xl font-black leading-none'>{display}</div>
+    <div className='py-5.5 px-4.5 cursor-default'>
+      <div className='text-4xl font-black leading-none'>
+        <AnimateNumber
+          target={target}
+          prefix={prefix}
+          suffix={suffix}
+          decimals={decimals}
+          reducedMotion={motion}
+        />
+      </div>
       <div className='text-xs text-muted-foreground tracking-1 mt-1'>
         {label}
       </div>
