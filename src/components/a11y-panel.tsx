@@ -31,7 +31,7 @@ function PillToggle({
     <button
       onClick={onToggle}
       className={cn(
-        'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+        'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
         on
           ? 'bg-foreground text-background border-foreground'
           : 'bg-transparent text-foreground',
@@ -94,7 +94,7 @@ export function A11yPanel() {
               if (themeDark) toggleTheme();
             }}
             className={cn(
-              'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+              'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
               !themeDark && 'bg-foreground text-background',
             )}
           >
@@ -105,7 +105,7 @@ export function A11yPanel() {
               if (!themeDark) toggleTheme();
             }}
             className={cn(
-              'text-xs px-[10px] py-[4px] border border-border cursor-pointer transition-colors duration-150',
+              'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
               themeDark && 'bg-foreground text-background',
             )}
           >
@@ -171,7 +171,7 @@ export function A11yPanel() {
       <PopoverContent
         side='top'
         align='start'
-        className='w-[304px] p-0 border-border rounded-none shadow-toast'
+        className='w-76 p-0 border-border rounded-none shadow-toast'
       >
         <div className='px-4 py-3 border-b border-border text-xs tracking-1 font-bold'>
           {t('a11y.title')}

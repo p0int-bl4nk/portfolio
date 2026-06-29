@@ -124,7 +124,7 @@ export function ExperienceSection() {
                   )
                 }
                 className={cn(
-                  'text-xs border border-border px-[12px] py-[7px] transition-colors duration-150 cursor-pointer',
+                  'text-xs border border-border px-3 py-1.75 transition-colors duration-150 cursor-pointer',
                   'hover:bg-foreground hover:text-background hover:border-foreground',
                 )}
               >

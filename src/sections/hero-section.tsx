@@ -45,7 +45,7 @@ export function HeroSection() {
       </h1>
 
       <div className='flex flex-col md:flex-row gap-10 mb-16 border-border border-t'>
-        <div className='max-w-[560px]'>
+        <div className='max-w-140'>
           <p
             className='text-base leading-body-lg pt-5 mb-0'
             dangerouslySetInnerHTML={{ __html: t('hero.lead') }}
@@ -80,7 +80,7 @@ export function HeroSection() {
       </div>
 
       <div className='flex items-center gap-3 text-xs text-muted-foreground tracking-2 pb-8'>
-        <span className='inline-block w-px h-[26px] bg-muted-foreground' />
+        <span className='inline-block w-px h-6.5 bg-muted-foreground' />
         {t('hero.scroll')}
       </div>
     </section>

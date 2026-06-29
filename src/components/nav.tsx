@@ -78,8 +78,8 @@ export function Nav() {
   ];
 
   return (
-    <nav className='fixed top-0 left-0 right-0 h-[54px] z-50 border-b border-border bg-background/90 backdrop-blur-[6px] backdrop-saturate-[180%]'>
-      <div className='mx-auto max-w-[1240px] h-full px-6 flex items-center justify-between gap-4'>
+    <nav className='fixed top-0 left-0 right-0 h-13.5 z-50 border-b border-border bg-background/90 backdrop-blur-[6px] backdrop-saturate-[180%]'>
+      <div className='mx-auto max-w-310 h-full px-6 flex items-center justify-between gap-4'>
         <button
           onClick={() => scrollTo('home', motion)}
           className='flex items-center gap-2 shrink-0 cursor-pointer bg-transparent border-0 p-0'
@@ -119,7 +119,7 @@ export function Nav() {
             >
               {LANG_CODE[lang] ?? 'EN'} ▾
             </DropdownMenuTrigger>
-            <DropdownMenuContent align='end' className='min-w-[120px]'>
+            <DropdownMenuContent align='end' className='min-w-30'>
               {LANG_DEFS.map(([code, label]) => (
                 <DropdownMenuItem
                   key={code}

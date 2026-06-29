@@ -64,7 +64,7 @@ export function App() {
       <div
         id='content'
         style={{ zoom }}
-        className='mx-auto max-w-[1240px] border-x border-border min-h-screen'
+        className='mx-auto max-w-310 border-x border-border min-h-screen'
       >
         <HeroSection />
         <AboutSection />
