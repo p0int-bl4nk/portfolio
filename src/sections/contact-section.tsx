@@ -43,13 +43,14 @@ export function ContactSection() {
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             {t('contact.phone_l')}
           </div>
-          <div className='text-sm'>
+          <div className='flex items-center gap-3 text-sm'>
             <a
               href={`tel:${config.PHONE.replace(/\s/g, '')}`}
               className='hover:text-muted-foreground transition-colors duration-150'
             >
               {config.PHONE}
             </a>
+            <CopyButton content={config.PHONE} />
           </div>
         </div>
 
@@ -94,7 +95,9 @@ export function ContactSection() {
       </div>
 
       <div className='flex gap-1 justify-between items-center text-xs text-muted-foreground'>
-        <span>© 2025 SACHIN VERMA — BUILT IN JETBRAINS MONO</span>
+        <span>
+          © {new Date().getFullYear()} {config.NAME} — BUILT IN JETBRAINS MONO
+        </span>
         <span>↑↑↓↓←→←→BA</span>
       </div>
     </Section>
