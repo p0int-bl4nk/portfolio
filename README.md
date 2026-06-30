@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# Portfolio — Sachin Verma
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site built with React 19, TypeScript, and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+**Live:** [sachin-verma.vercel.app](https://sachin-verma.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sections
 
-## React Compiler
+- Hero
+- About
+- Skills
+- Experience
+- Awards & Certifications
+- Education
+- Contact
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Layer              | Choice                      |
+|--------------------|-----------------------------|
+| Framework          | React 19 + TypeScript       |
+| Build              | Vite 8                      |
+| Styling            | Tailwind CSS v4             |
+| Animation          | Motion One                  |
+| UI Primitives      | Base UI, cmdk               |
+| i18n               | i18next (EN / HI / ES / FR) |
+| Linting/Formatting | oxlint + oxfmt              |
+| Package Manager    | pnpm                        |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build      # type-check + bundle
+pnpm preview    # preview production build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
 ```
+src/
+├── components/     # Shared UI components
+├── context/        # Portfolio context (theme, lang, a11y prefs)
+├── hooks/          # useActiveSection, useTypingEffect, …
+├── i18n/           # Translation files (en, hi, es, fr)
+├── lib/            # config, constants, utils
+└── sections/       # One file per page section
+```
+
+## Features
+
+- Command palette (`⌘K` / `/`) with navigation and quick actions
+- Dark / light mode with persistent preference
+- 4-language i18n
+- Accessibility panel (high contrast, dyslexia font, reduced motion, underline links, text size)
+- PWA support
+- IST clock in the nav
