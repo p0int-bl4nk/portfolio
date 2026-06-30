@@ -2,11 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { CopyButton } from '@/components/copy-button';
 import { Section, SectionLabel } from '@/components/section';
-
-const EMAIL = 'skv860254262+pf@gmail.com';
-const PHONE = '+91 98278 86094';
-const LINKEDIN_HANDLE = 'in/sachin-verma-l';
-const LINKEDIN_URL = `https://linkedin.com/${LINKEDIN_HANDLE}`;
+import { config } from '@/lib/config';
 
 export function ContactSection() {
   const { t } = useTranslation();
@@ -34,12 +30,12 @@ export function ContactSection() {
           </div>
           <div className='flex items-center gap-3 text-sm'>
             <a
-              href={`mailto:${EMAIL}`}
+              href={`mailto:${config.EMAIL}`}
               className='hover:text-muted-foreground transition-colors duration-150'
             >
-              {EMAIL}
+              {config.EMAIL}
             </a>
-            <CopyButton content={EMAIL} />
+            <CopyButton content={config.EMAIL} />
           </div>
         </div>
 
@@ -49,10 +45,10 @@ export function ContactSection() {
           </div>
           <div className='text-sm'>
             <a
-              href={`tel:${PHONE.replace(/\s/g, '')}`}
+              href={`tel:${config.PHONE.replace(/\s/g, '')}`}
               className='hover:text-muted-foreground transition-colors duration-150'
             >
-              {PHONE}
+              {config.PHONE}
             </a>
           </div>
         </div>
@@ -63,12 +59,28 @@ export function ContactSection() {
           </div>
           <div className='text-sm'>
             <a
-              href={LINKEDIN_URL}
+              href={config.LINKEDIN_URL}
               target='_blank'
               rel='noopener noreferrer'
               className='hover:text-muted-foreground transition-colors duration-150'
             >
-              {LINKEDIN_HANDLE} ↗
+              {config.LINKEDIN_HANDLE} ↗
+            </a>
+          </div>
+        </div>
+
+        <div className='border-r border-b border-border p-6'>
+          <div className='text-xs text-muted-foreground tracking-2 mb-3'>
+            GITHUB
+          </div>
+          <div className='text-sm'>
+            <a
+              href={config.GITHUB_URL}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='hover:text-muted-foreground transition-colors duration-150'
+            >
+              {config.GITHUB_HANDLE} ↗
             </a>
           </div>
         </div>
@@ -77,7 +89,7 @@ export function ContactSection() {
           <div className='text-xs text-muted-foreground tracking-2 mb-3'>
             {t('contact.loc_l')}
           </div>
-          <div className='text-sm'>Gurugram, Haryana, India</div>
+          <div className='text-sm'>{config.LOCATION}</div>
         </div>
       </div>
 

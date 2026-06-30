@@ -9,6 +9,7 @@ import {
   AccordionItem,
 } from '@/components/ui/accordion';
 import { usePortfolio } from '@/context/portfolio-context';
+import { BULLETS_R1, BULLETS_R2 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
 function Metric({
@@ -44,21 +45,10 @@ function Metric({
   );
 }
 
-const BULLETS_R1 = [
-  'exp.r1b1',
-  'exp.r1b2',
-  'exp.r1b3',
-  'exp.r1b4',
-  'exp.r1b5',
-  'exp.r1b6',
-  'exp.r1b7',
-];
-const BULLETS_R2 = ['exp.r2b1', 'exp.r2b2', 'exp.r2b3', 'exp.r2b4'];
-
 export function ExperienceSection() {
   const { t } = useTranslation();
   const { motion } = usePortfolio();
-  const [open, setOpen] = useState<string[]>(['role-1']);
+  const [open, setOpen] = useState(['role-1']);
 
   return (
     <Section id='experience'>
@@ -100,7 +90,7 @@ export function ExperienceSection() {
             value: 'role-2',
             date: t('exp.r2date'),
             title: t('exp.r2title'),
-            employer: 'Agami Technologies Pvt. Ltd.',
+            employer: 'Agami Technologies Pvt. Ltd. · Noida, Uttar Pradesh',
             bullets: BULLETS_R2,
           },
         ].map(({ value, date, title, employer, bullets }) => (

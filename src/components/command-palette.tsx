@@ -3,25 +3,17 @@ import { useTranslation } from 'react-i18next';
 
 import {
   Command,
-  CommandInput,
-  CommandList,
-  CommandGroup,
-  CommandItem,
   CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
 } from '@/components/ui/command';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { usePortfolio } from '@/context/portfolio-context';
-
-function scrollTo(id: string, motion: boolean) {
-  if (id === 'home') {
-    window.scrollTo({ top: 0, behavior: motion ? 'auto' : 'smooth' });
-    return;
-  }
-  const el = document.getElementById(id);
-  if (!el) return;
-  const y = el.getBoundingClientRect().top + window.scrollY - 54;
-  window.scrollTo({ top: y, behavior: motion ? 'auto' : 'smooth' });
-}
+import { config } from '@/lib/config';
+import { SECTIONS } from '@/lib/constants.ts';
+import { scrollTo } from '@/lib/utils.ts';
 
 export function CommandPalette() {
   const { t } = useTranslation();
@@ -53,22 +45,64 @@ export function CommandPalette() {
   }, []);
 
   const navCommands = [
-    { id: 'home', hint: '00', run: () => scrollTo('home', motion) },
-    { id: 'about', hint: '01', run: () => scrollTo('about', motion) },
-    { id: 'skills', hint: '02', run: () => scrollTo('skills', motion) },
-    { id: 'experience', hint: '03', run: () => scrollTo('experience', motion) },
-    { id: 'awards', hint: '04', run: () => scrollTo('awards', motion) },
-    { id: 'education', hint: '05', run: () => scrollTo('education', motion) },
-    { id: 'contact', hint: '06', run: () => scrollTo('contact', motion) },
+    {
+      id: SECTIONS.home,
+      hint: '00',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.about,
+      hint: '01',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.skills,
+      hint: '02',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.experience,
+      hint: '03',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.awards,
+      hint: '04',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.education,
+      hint: '05',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
+    {
+      id: SECTIONS.contact,
+      hint: '06',
+      run() {
+        scrollTo(this.id, motion);
+      },
+    },
   ];
 
   const actionCommands = [
     {
-      id: 'copy',
+      id: 'copy-email',
       hint: 'mail',
       run: () => {
         navigator.clipboard
-          .writeText('skv860254262@gmail.com')
+          .writeText(config.EMAIL)
           .then(() => {
             showToast('email copied');
           })
@@ -76,10 +110,31 @@ export function CommandPalette() {
       },
     },
     {
+      id: 'copy-phone',
+      hint: 'tel',
+      run: () => {
+        navigator.clipboard
+          .writeText(config.PHONE)
+          .then(() => {
+            showToast('phone copied');
+          })
+          .catch(() => {});
+      },
+    },
+    {
       id: 'linkedin',
       hint: '↗',
-      run: () =>
-        window.open('https://linkedin.com/in/sachin-verma-16041999', '_blank'),
+      run: () => window.open(config.LINKEDIN_URL, '_blank'),
+    },
+    {
+      id: 'github',
+      hint: '↗',
+      run: () => window.open(config.GITHUB_URL, '_blank'),
+    },
+    {
+      id: 'source',
+      hint: '↗',
+      run: () => window.open(config.SOURCE_URL, '_blank'),
     },
     { id: 'theme', hint: '◑', run: toggleTheme },
   ];

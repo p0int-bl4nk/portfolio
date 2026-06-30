@@ -100,8 +100,11 @@ export const en = {
   'cmd.awards': 'Awards & Certifications',
   'cmd.education': 'Education',
   'cmd.contact': 'Contact',
-  'cmd.copy': 'Copy email address',
+  'cmd.copy-email': 'Copy email address',
+  'cmd.copy-phone': 'Copy phone number',
   'cmd.linkedin': 'Open LinkedIn',
+  'cmd.github': 'Open GitHub profile',
+  'cmd.source': 'View source code',
   'cmd.theme': 'Toggle dark mode',
   // A11y panel
   'a11y.title': 'ACCESSIBILITY',

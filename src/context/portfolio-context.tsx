@@ -1,12 +1,11 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 import i18n from '@/i18n';
-
-type Lang = 'en' | 'hi' | 'es' | 'fr';
+import type { LANG } from '@/lib/constants.ts';
 
 interface Prefs {
   themeDark: boolean;
-  lang: Lang;
+  lang: LANG;
   textStep: number;
   hc: boolean;
   ul: boolean;
@@ -16,7 +15,7 @@ interface Prefs {
 
 interface PortfolioContextValue extends Prefs {
   toggleTheme(): void;
-  setLang(l: Lang): void;
+  setLang(l: LANG): void;
   setTextStep(v: number): void;
   setHc(v: boolean): void;
   setUl(v: boolean): void;
@@ -53,7 +52,7 @@ function savePrefs(p: Prefs) {
 
 const Ctx = createContext<PortfolioContextValue | null>(null);
 
-function tryChangeLanguage(lang: Lang): void {
+function tryChangeLanguage(lang: LANG): void {
   void i18n.changeLanguage(lang);
 }
 
@@ -93,7 +92,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
       patch({ themeDark: next });
       showToast(next ? '// dark mode engaged' : '// light mode');
     },
-    setLang: (l: Lang) => {
+    setLang: (l: LANG) => {
       patch({ lang: l });
       document.documentElement.lang = l;
       tryChangeLanguage(l);

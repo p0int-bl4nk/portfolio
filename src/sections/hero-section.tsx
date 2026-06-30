@@ -5,12 +5,7 @@ import { AnimateNumber } from '@/components/animate-number';
 import { SectionLabel } from '@/components/section';
 import { Typewriter } from '@/components/typewriter';
 import { usePortfolio } from '@/context/portfolio-context';
-
-const STATS = [
-  { target: 5, suffix: '+', label: 'YEARS' },
-  { target: 2, suffix: '×', label: 'AWARDS' },
-  { target: 94, suffix: '%', label: 'COVERAGE' },
-] as const;
+import { STATS } from '@/lib/constants';
 
 export function HeroSection() {
   const { t } = useTranslation();

@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useActiveSection(ids: string[]): string {
-  const [active, setActive] = useState(ids[0] ?? '');
+import type { SECTIONS } from '@/lib/constants.ts';
+
+export function useActiveSection(ids: SECTIONS[]): SECTIONS {
+  const [active, setActive] = useState<SECTIONS>(ids[0] ?? '');
   const intersecting = useRef<Set<string>>(new Set());
 
   useEffect(() => {
