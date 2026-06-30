@@ -1,0 +1,147 @@
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { AnimateNumber } from '@/components/animate-number';
+import { Section, SectionLabel } from '@/components/section';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+} from '@/components/ui/accordion';
+import { usePortfolio } from '@/context/portfolio-context';
+import { BULLETS_R1, BULLETS_R2 } from '@/lib/constants';
+import { cn } from '@/lib/utils';
+
+function Metric({
+  prefix = '',
+  target,
+  decimals = 0,
+  suffix = '',
+  label,
+  motion,
+}: {
+  prefix?: string;
+  target: number;
+  decimals?: number;
+  suffix: string;
+  label: string;
+  motion: boolean;
+}) {
+  return (
+    <div className='py-5.5 px-4.5 cursor-default'>
+      <div className='text-4xl font-black leading-none'>
+        <AnimateNumber
+          target={target}
+          prefix={prefix}
+          suffix={suffix}
+          decimals={decimals}
+          reducedMotion={motion}
+        />
+      </div>
+      <div className='text-xs text-muted-foreground tracking-1 mt-1'>
+        {label}
+      </div>
+    </div>
+  );
+}
+
+export function ExperienceSection() {
+  const { t } = useTranslation();
+  const { motion } = usePortfolio();
+  const [open, setOpen] = useState(['role-1']);
+
+  return (
+    <Section id='experience'>
+      <SectionLabel no='03' label={t('sec.experience')} className='mb-11.5' />
+
+      <div className='grid grid-cols-2 sm:grid-cols-4 border-y border-foreground mb-15'>
+        {[
+          { prefix: '↓', target: 90, suffix: '%', labelKey: 'exp.manual' },
+          { prefix: '↓', target: 60, suffix: '%', labelKey: 'exp.latency' },
+          { prefix: '', target: 94, suffix: '%', labelKey: 'exp.coverage' },
+          { prefix: '', target: 100, suffix: '%', labelKey: 'exp.typesafe' },
+        ].map(({ prefix, target, suffix, labelKey }, i) => (
+          <div key={labelKey} className={cn(i < 3 && 'border-r border-border')}>
+            <Metric
+              prefix={prefix}
+              target={target}
+              suffix={suffix}
+              label={t(labelKey)}
+              motion={motion}
+            />
+          </div>
+        ))}
+      </div>
+
+      <Accordion
+        multiple
+        value={open}
+        onValueChange={value => setOpen(value as string[])}
+      >
+        {[
+          {
+            value: 'role-1',
+            date: t('exp.r1date'),
+            title: t('exp.r1title'),
+            employer: 'Policybazaar · Gurugram, Haryana',
+            bullets: BULLETS_R1,
+          },
+          {
+            value: 'role-2',
+            date: t('exp.r2date'),
+            title: t('exp.r2title'),
+            employer: 'Agami Technologies Pvt. Ltd. · Noida, Uttar Pradesh',
+            bullets: BULLETS_R2,
+          },
+        ].map(({ value, date, title, employer, bullets }) => (
+          <AccordionItem
+            key={value}
+            value={value}
+            className='border-b border-border'
+          >
+            <div className='grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 py-5 items-start'>
+              <div className='text-xs text-muted-foreground'>{date}</div>
+              <div className='space-y-1'>
+                <div className='text-2xl font-bold'>{title}</div>
+                <div className='text-sm text-muted-foreground'>{employer}</div>
+              </div>
+              <button
+                onClick={() =>
+                  setOpen(prev =>
+                    prev.includes(value)
+                      ? prev.filter(v => v !== value)
+                      : [...prev, value],
+                  )
+                }
+                className={cn(
+                  'text-xs border border-border px-3 py-1.75 transition-colors duration-150 cursor-pointer',
+                  'hover:bg-foreground hover:text-background hover:border-foreground',
+                )}
+              >
+                {open.includes(value) ? '− HIDE' : '+ DETAILS'}
+              </button>
+            </div>
+            <AccordionContent>
+              <div className='grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-3 pb-6'>
+                <div />
+                <div className='flex flex-col gap-3'>
+                  {bullets.map(key => (
+                    <div
+                      key={key}
+                      className='flex gap-3.5 text-sm leading-body'
+                    >
+                      <span className='text-muted-foreground shrink-0 mt-px'>
+                        →
+                      </span>
+                      <span dangerouslySetInnerHTML={{ __html: t(key) }} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </Section>
+  );
+}
