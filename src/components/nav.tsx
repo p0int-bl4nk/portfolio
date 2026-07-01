@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { useActiveSection } from '@/hooks';
 import { LANG_CODE, LANG_DEFS, SECTIONS } from '@/lib/constants';
 import type { SECTIONS as SectionId } from '@/lib/constants';
@@ -35,7 +35,7 @@ const Sections = Object.values(SECTIONS);
 
 export function Nav() {
   const { t } = useTranslation();
-  const { lang, setLang, toggleTheme, themeDark, motion } = usePortfolio();
+  const { resolved, setLang, toggleTheme } = usePreference();
   const active = useActiveSection(Sections);
   const clock = useClock();
 
@@ -52,7 +52,7 @@ export function Nav() {
     <nav className='fixed top-0 left-0 right-0 h-13.5 z-50 border-b border-border bg-background/90 backdrop-blur-[6px] backdrop-saturate-180'>
       <div className='mx-auto max-w-310 h-full px-6 flex items-center justify-between gap-4'>
         <button
-          onClick={() => scrollTo(SECTIONS.home, motion)}
+          onClick={() => scrollTo(SECTIONS.home, resolved.reduceMotion)}
           className='flex items-center gap-2 shrink-0 cursor-pointer bg-transparent border-0 p-0'
         >
           <span className='flex items-center justify-center size-5.5 border-[1.5px] border-foreground text-xs font-bold leading-none'>
@@ -65,7 +65,7 @@ export function Nav() {
           {NAV_LINKS.map(({ id, label, no }) => (
             <button
               key={id}
-              onClick={() => scrollTo(id, motion)}
+              onClick={() => scrollTo(id, resolved.reduceMotion)}
               className={cn(
                 'text-xs text-foreground transition-opacity duration-200 cursor-pointer bg-transparent border-0 p-0',
                 active === id ? 'opacity-100' : 'opacity-50 hover:opacity-100',
@@ -88,14 +88,17 @@ export function Nav() {
               aria-label='Select language'
               className='border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
             >
-              {LANG_CODE[lang]} ▾
+              {LANG_CODE[resolved.lang]} ▾
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end' className='min-w-30'>
               {LANG_DEFS.map(([code, label]) => (
                 <DropdownMenuItem
                   key={code}
                   onClick={() => setLang(code)}
-                  className={cn('text-xs', lang === code && 'bg-muted')}
+                  className={cn(
+                    'text-xs',
+                    resolved.lang === code && 'bg-muted',
+                  )}
                 >
                   {label}
                 </DropdownMenuItem>
@@ -107,7 +110,7 @@ export function Nav() {
             onClick={toggleTheme}
             className='border border-border text-xs px-2.25 py-1.25 bg-transparent cursor-pointer'
           >
-            {themeDark ? 'LIGHT' : 'DARK'}
+            {resolved.themeDark ? 'LIGHT' : 'DARK'}
           </button>
 
           <button

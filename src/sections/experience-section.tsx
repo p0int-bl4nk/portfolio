@@ -8,7 +8,7 @@ import {
   AccordionContent,
   AccordionItem,
 } from '@/components/ui/accordion';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { BULLETS_R1, BULLETS_R2 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
@@ -47,7 +47,7 @@ function Metric({
 
 export function ExperienceSection() {
   const { t } = useTranslation();
-  const { motion } = usePortfolio();
+  const { resolved } = usePreference();
   const [open, setOpen] = useState(['role-1']);
 
   return (
@@ -67,7 +67,7 @@ export function ExperienceSection() {
               target={target}
               suffix={suffix}
               label={t(labelKey)}
-              motion={motion}
+              motion={resolved.reduceMotion}
             />
           </div>
         ))}

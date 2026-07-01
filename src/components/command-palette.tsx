@@ -10,14 +10,14 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { config } from '@/lib/config';
 import { SECTIONS } from '@/lib/constants.ts';
 import { scrollTo } from '@/lib/utils.ts';
 
 export function CommandPalette() {
   const { t } = useTranslation();
-  const { motion, toggleTheme, showToast } = usePortfolio();
+  const { resolved, toggleTheme, showToast } = usePreference();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -49,49 +49,49 @@ export function CommandPalette() {
       id: SECTIONS.home,
       hint: '00',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.about,
       hint: '01',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.skills,
       hint: '02',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.experience,
       hint: '03',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.awards,
       hint: '04',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.education,
       hint: '05',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
     {
       id: SECTIONS.contact,
       hint: '06',
       run() {
-        scrollTo(this.id, motion);
+        scrollTo(this.id, resolved.reduceMotion);
       },
     },
   ];

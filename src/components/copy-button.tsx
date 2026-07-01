@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { cn } from '@/lib/utils';
 
 interface CopyButtonProps {
@@ -11,7 +11,7 @@ interface CopyButtonProps {
 
 export function CopyButton({ content, className }: CopyButtonProps) {
   const { t } = useTranslation();
-  const { showToast } = usePortfolio();
+  const { showToast } = usePreference();
   const [copied, setCopied] = useState(false);
 
   function handleCopy() {
