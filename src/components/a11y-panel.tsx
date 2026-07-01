@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { usePreferences } from '@/hooks/use-preferences';
+import { usePreference } from '@/context/portfolio-context';
 import type { TriStatePref, Prefs } from '@/hooks/use-preferences';
 import { cn } from '@/lib/utils';
 
@@ -74,7 +74,7 @@ export function A11yPanel() {
     setReduceMotion,
     setDyslexiaFont,
     resetA11y,
-  } = usePreferences();
+  } = usePreference();
 
   const rows = [
     {
