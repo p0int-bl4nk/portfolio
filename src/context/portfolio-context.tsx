@@ -1,83 +1,48 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
+import { usePreferences } from '@/hooks/use-preferences';
 import i18n from '@/i18n';
-import type { LANG } from '@/lib/constants.ts';
 
-interface Prefs {
-  themeDark: boolean;
-  lang: LANG;
-  textStep: number;
-  hc: boolean;
-  ul: boolean;
-  motion: boolean;
-  dys: boolean;
-}
-
-interface PortfolioContextValue extends Prefs {
-  toggleTheme(): void;
-  setLang(l: LANG): void;
-  setTextStep(v: number): void;
-  setHc(v: boolean): void;
-  setUl(v: boolean): void;
-  setMotion(v: boolean): void;
-  setDys(v: boolean): void;
-  resetA11y(): void;
+type PreferenceContextValue = ReturnType<typeof usePreferences> & {
+  toggleTheme: () => void;
   toast: string;
-  showToast(msg: string): void;
-}
-
-const DEFAULTS: Prefs = {
-  themeDark: false,
-  lang: 'en',
-  textStep: 0,
-  hc: false,
-  ul: false,
-  motion: false,
-  dys: false,
+  showToast: (msg: string) => void;
 };
 
-function loadPrefs(): Partial<Prefs> {
-  try {
-    const raw = localStorage.getItem('sv_prefs');
-    if (raw) return JSON.parse(raw) as Partial<Prefs>;
-  } catch {}
-  return {};
-}
+const Ctx = createContext<PreferenceContextValue | null>(null);
 
-function savePrefs(p: Prefs) {
-  try {
-    localStorage.setItem('sv_prefs', JSON.stringify(p));
-  } catch {}
-}
+export function PreferenceProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const {
+    prefs,
+    resolved,
+    setTheme,
+    setLang,
+    setTextStep,
+    setHighContrast,
+    setUnderlineLinks,
+    setReduceMotion,
+    setDyslexiaFont,
+    resetA11y,
+  } = usePreferences();
 
-const Ctx = createContext<PortfolioContextValue | null>(null);
-
-function tryChangeLanguage(lang: LANG): void {
-  void i18n.changeLanguage(lang);
-}
-
-export function PortfolioProvider({ children }: { children: React.ReactNode }) {
-  const [prefs, setPrefs] = useState<Prefs>(() => ({
-    ...DEFAULTS,
-    ...loadPrefs(),
-  }));
   const [toast, setToast] = useState('');
   const toastTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    savePrefs(prefs);
-  }, [prefs]);
-
-  const mountedRef = useRef(false);
-  useEffect(() => {
-    if (mountedRef.current) return; // only run on mount
-    mountedRef.current = true;
-    document.documentElement.lang = prefs.lang;
-    tryChangeLanguage(prefs.lang);
-  }, [prefs.lang]);
-
-  const patch = (update: Partial<Prefs>) =>
-    setPrefs(p => ({ ...p, ...update }));
+    document.documentElement.lang = resolved.lang;
+    void i18n.changeLanguage(resolved.lang);
+  }, [resolved.lang]);
 
   function showToast(msg: string) {
     setToast(msg);
@@ -85,33 +50,23 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
     toastTimer.current = setTimeout(() => setToast(''), 1800);
   }
 
-  const value: PortfolioContextValue = {
-    ...prefs,
-    toggleTheme() {
-      const next = !prefs.themeDark;
-      patch({ themeDark: next });
-      showToast(next ? '// dark mode engaged' : '// light mode');
-    },
-    setLang: (l: LANG) => {
-      patch({ lang: l });
-      document.documentElement.lang = l;
-      tryChangeLanguage(l);
-    },
-    setTextStep: (v: number) =>
-      patch({ textStep: Math.max(-1, Math.min(3, v)) }),
-    setHc: (v: boolean) => patch({ hc: v }),
-    setUl: (v: boolean) => patch({ ul: v }),
-    setMotion: (v: boolean) => patch({ motion: v }),
-    setDys: (v: boolean) => patch({ dys: v }),
-    resetA11y: () =>
-      patch({
-        textStep: 0,
-        hc: false,
-        ul: false,
-        motion: false,
-        dys: false,
-        themeDark: false,
-      }),
+  const toggleTheme = useCallback(
+    () => setTheme(resolved.themeDark ? 'light' : 'dark'),
+    [resolved.themeDark, setTheme],
+  );
+
+  const value: PreferenceContextValue = {
+    prefs,
+    resolved,
+    setTheme,
+    toggleTheme,
+    setLang,
+    setTextStep,
+    setHighContrast,
+    setUnderlineLinks,
+    setReduceMotion,
+    setDyslexiaFont,
+    resetA11y,
     toast,
     showToast,
   };
@@ -119,9 +74,9 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
-export function usePortfolio() {
+export function usePreference() {
   const ctx = useContext(Ctx);
   if (!ctx)
-    throw new Error('usePortfolio must be used within PortfolioProvider');
+    throw new Error('usePreference must be used within PreferenceProvider');
   return ctx;
 }

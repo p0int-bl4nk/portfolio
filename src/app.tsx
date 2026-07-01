@@ -4,7 +4,7 @@ import { A11yPanel } from '@/components/a11y-panel';
 import { CommandPalette } from '@/components/command-palette';
 import { Nav } from '@/components/nav';
 import { Toast } from '@/components/toast';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { useKonami } from '@/hooks/use-konami';
 import { AboutSection } from '@/sections/about-section';
 import { AwardsSection } from '@/sections/awards-section';
@@ -15,13 +15,12 @@ import { HeroSection } from '@/sections/hero-section';
 import { SkillsSection } from '@/sections/skills-section';
 
 export function App() {
-  const { themeDark, hc, ul, motion, dys, textStep, toggleTheme, showToast } =
-    usePortfolio();
+  const { resolved, prefs, toggleTheme, showToast } = usePreference();
 
   const onKonami = useCallback(() => {
     toggleTheme();
     showToast('// easter egg: konami code activated 🎮');
-    if (!motion) {
+    if (!resolved.reduceMotion) {
       const h1 = document.querySelector<HTMLElement>('#home h1');
       if (h1) {
         h1.classList.add('glitch');
@@ -36,18 +35,18 @@ export function App() {
         );
       }
     }
-  }, [toggleTheme, showToast, motion]);
+  }, [toggleTheme, showToast, resolved.reduceMotion]);
 
   useKonami(onKonami);
 
   useEffect(() => {
     const el = document.documentElement;
-    el.classList.toggle('theme-dark', themeDark);
-    el.classList.toggle('hc', hc);
-    el.classList.toggle('ul', ul);
-    el.classList.toggle('motion-off', motion);
-    el.classList.toggle('dys', dys);
-  }, [themeDark, hc, ul, motion, dys]);
+    el.classList.toggle('theme-dark', resolved.themeDark);
+    el.classList.toggle('hc', resolved.highContrast);
+    el.classList.toggle('ul', resolved.underlineLinks);
+    el.classList.toggle('motion-off', resolved.reduceMotion);
+    el.classList.toggle('dys', resolved.dyslexiaFont);
+  }, [resolved]);
 
   const zoomMap: Record<number, string> = {
     '-1': '90%',
@@ -56,7 +55,7 @@ export function App() {
     2: '125%',
     3: '140%',
   };
-  const zoom = zoomMap[textStep] ?? '100%';
+  const zoom = zoomMap[prefs.textStep] ?? '100%';
 
   return (
     <>

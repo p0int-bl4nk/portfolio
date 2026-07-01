@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { AnimateNumber } from '@/components/animate-number';
 import { SectionLabel } from '@/components/section';
 import { Typewriter } from '@/components/typewriter';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { STATS } from '@/lib/constants';
 
 export function HeroSection() {
   const { t } = useTranslation();
-  const { motion } = usePortfolio();
+  const { resolved } = usePreference();
 
   const words = useMemo(
     () => t('typed', { returnObjects: true }) as string[],
@@ -19,7 +19,7 @@ export function HeroSection() {
   return (
     <section
       id='home'
-      className='min-h-screen flex flex-col justify-center pt-24 md:pt-13.5 px-6 max-xs:px-4'
+      className='min-h-screen flex flex-col justify-center pt-19 px-6 max-xs:px-4'
     >
       <div className='flex flex-wrap justify-between gap-2 text-xs tracking-2 text-muted-foreground border-b border-border pb-5 mb-10'>
         <span>{t('hero.role')}</span>
@@ -49,7 +49,7 @@ export function HeroSection() {
             $ {t('hero.building')}{' '}
             <Typewriter
               words={words}
-              reducedMotion={motion}
+              reducedMotion={resolved.reduceMotion}
               className='text-foreground whitespace-nowrap'
             />
           </div>
@@ -63,7 +63,7 @@ export function HeroSection() {
                   target={target}
                   suffix={suffix}
                   duration={1400}
-                  reducedMotion={motion}
+                  reducedMotion={resolved.reduceMotion}
                 />
               </div>
               <div className='text-xs text-muted-foreground tracking-1 mt-1'>

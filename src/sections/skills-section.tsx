@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 
 import { AnimateNumber } from '@/components/animate-number';
 import { Section, SectionLabel } from '@/components/section';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreference } from '@/context/portfolio-context';
 import { SKILL_GROUPS } from '@/lib/constants';
 
 export function SkillsSection() {
   const { t } = useTranslation();
-  const { motion } = usePortfolio();
+  const { resolved } = usePreference();
 
   return (
     <Section id='skills'>
@@ -17,7 +17,7 @@ export function SkillsSection() {
           target={40}
           suffix='+'
           duration={1400}
-          reducedMotion={motion}
+          reducedMotion={resolved.reduceMotion}
           className='text-foreground font-black'
         />
         {t('skills.intro')}
