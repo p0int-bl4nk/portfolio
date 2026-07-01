@@ -5,7 +5,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { usePortfolio } from '@/context/portfolio-context';
+import { usePreferences } from '@/hooks/use-preferences';
+import type { TriStatePref, Prefs } from '@/hooks/use-preferences';
 import { cn } from '@/lib/utils';
 
 const ZOOM_MAP: Record<number, string> = {
@@ -16,49 +17,64 @@ const ZOOM_MAP: Record<number, string> = {
   3: '140%',
 };
 
-function PillToggle({
-  on,
-  onToggle,
-  labelOn,
-  labelOff,
+function SegmentControl<T extends string>({
+  value,
+  options,
+  onChange,
 }: {
-  on: boolean;
-  onToggle: () => void;
-  labelOn: string;
-  labelOff: string;
+  value: T;
+  options: { value: T; label: string }[];
+  onChange: (v: T) => void;
 }) {
   return (
-    <button
-      onClick={onToggle}
-      className={cn(
-        'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
-        on
-          ? 'bg-foreground text-background border-foreground'
-          : 'bg-transparent text-foreground',
-      )}
-    >
-      {on ? labelOn : labelOff}
-    </button>
+    <div className='flex'>
+      {options.map(opt => (
+        <button
+          key={opt.value}
+          onClick={() => onChange(opt.value)}
+          className={cn(
+            'text-xs px-2.5 py-1 border-y border-r border-border first:border-l cursor-pointer transition-colors duration-150',
+            value === opt.value
+              ? 'bg-foreground text-background'
+              : 'bg-transparent text-foreground hover:bg-muted',
+          )}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
   );
 }
+
+const THEME_OPTIONS: { value: Prefs['theme']; label: string }[] = [
+  { value: 'light', label: 'LIGHT' },
+  { value: 'system', label: 'SYS' },
+  { value: 'dark', label: 'DARK' },
+];
+
+const TRISTATE_OPTIONS: { value: TriStatePref; label: string }[] = [
+  { value: 'off', label: 'OFF' },
+  { value: 'system', label: 'SYS' },
+  { value: 'on', label: 'ON' },
+];
+
+const ON_OFF_OPTIONS = [
+  { value: 'off', label: 'OFF' },
+  { value: 'on', label: 'ON' },
+];
 
 export function A11yPanel() {
   const { t } = useTranslation();
   const {
-    textStep,
+    prefs,
+    setTheme,
     setTextStep,
-    themeDark,
-    toggleTheme,
-    hc,
-    setHc,
-    ul,
-    setUl,
-    motion,
-    setMotion,
-    dys,
-    setDys,
+    setHighContrast,
+    setUnderlineLinks,
+    setReduceMotion,
+    setDyslexiaFont,
     resetA11y,
-  } = usePortfolio();
+  } = usePreferences();
 
   const rows = [
     {
@@ -66,18 +82,18 @@ export function A11yPanel() {
       control: (
         <div className='flex items-center gap-2'>
           <button
-            onClick={() => setTextStep(textStep - 1)}
-            disabled={textStep <= -1}
+            onClick={() => setTextStep(prefs.textStep - 1)}
+            disabled={prefs.textStep <= -1}
             className='border border-border text-xs px-2 py-1 cursor-pointer disabled:opacity-30'
           >
             A−
           </button>
           <span className='text-xs text-muted-foreground w-8 text-center'>
-            {ZOOM_MAP[textStep]}
+            {ZOOM_MAP[prefs.textStep]}
           </span>
           <button
-            onClick={() => setTextStep(textStep + 1)}
-            disabled={textStep >= 3}
+            onClick={() => setTextStep(prefs.textStep + 1)}
+            disabled={prefs.textStep >= 3}
             className='border border-border text-xs px-2 py-1 cursor-pointer disabled:opacity-30'
           >
             A+
@@ -88,73 +104,50 @@ export function A11yPanel() {
     {
       label: t('a11y.theme'),
       control: (
-        <div className='flex gap-2'>
-          <button
-            onClick={() => {
-              if (themeDark) toggleTheme();
-            }}
-            className={cn(
-              'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
-              !themeDark && 'bg-foreground text-background',
-            )}
-          >
-            LIGHT
-          </button>
-          <button
-            onClick={() => {
-              if (!themeDark) toggleTheme();
-            }}
-            className={cn(
-              'text-xs px-2.5 py-1 border border-border cursor-pointer transition-colors duration-150',
-              themeDark && 'bg-foreground text-background',
-            )}
-          >
-            DARK
-          </button>
-        </div>
+        <SegmentControl
+          value={prefs.theme}
+          options={THEME_OPTIONS}
+          onChange={setTheme}
+        />
       ),
     },
     {
       label: t('a11y.contrast'),
       control: (
-        <PillToggle
-          on={hc}
-          onToggle={() => setHc(!hc)}
-          labelOn='ON'
-          labelOff='OFF'
+        <SegmentControl
+          value={prefs.highContrast}
+          options={TRISTATE_OPTIONS}
+          onChange={setHighContrast}
         />
       ),
     },
     {
       label: t('a11y.underline'),
       control: (
-        <PillToggle
-          on={ul}
-          onToggle={() => setUl(!ul)}
-          labelOn='ON'
-          labelOff='OFF'
+        <SegmentControl
+          value={prefs.underlineLinks ? 'on' : 'off'}
+          options={ON_OFF_OPTIONS}
+          onChange={v => setUnderlineLinks(v === 'on')}
         />
       ),
     },
     {
       label: t('a11y.motion'),
       control: (
-        <PillToggle
-          on={motion}
-          onToggle={() => setMotion(!motion)}
-          labelOn='ON'
-          labelOff='OFF'
+        <SegmentControl
+          value={prefs.reduceMotion}
+          options={TRISTATE_OPTIONS}
+          onChange={setReduceMotion}
         />
       ),
     },
     {
       label: t('a11y.font'),
       control: (
-        <PillToggle
-          on={dys}
-          onToggle={() => setDys(!dys)}
-          labelOn='ON'
-          labelOff='OFF'
+        <SegmentControl
+          value={prefs.dyslexiaFont ? 'on' : 'off'}
+          options={ON_OFF_OPTIONS}
+          onChange={v => setDyslexiaFont(v === 'on')}
         />
       ),
     },
@@ -163,7 +156,7 @@ export function A11yPanel() {
   return (
     <Popover>
       <PopoverTrigger
-        className='fixed left-4.5 bottom-4.5 z-[90] size-12.5 rounded-full border border-border bg-background text-foreground text-xs font-bold shadow-nav cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
+        className='fixed left-4.5 bottom-4.5 z-90 size-12.5 rounded-full border border-border bg-background text-foreground text-xs font-bold shadow-nav cursor-pointer hover:bg-foreground hover:text-background transition-colors duration-150 flex items-center justify-center'
         aria-label='Accessibility options'
       >
         A11Y
